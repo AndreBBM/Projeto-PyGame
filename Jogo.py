@@ -14,6 +14,7 @@ Start=True
 
 #Loop Principal!
 while Start:
+    tela.fill((176, 196, 222))
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()

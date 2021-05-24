@@ -21,8 +21,6 @@ pygame.display.set_caption('Olha o Carteiro!')
 # Posições dos elementos
 buraco_x="?"
 buraco_y="?"
-carteiro_y=50
-carteiro_x=200
 carteiro_y=300
 carteiro_x=175
 buraco_speed="?"
@@ -110,9 +108,6 @@ while Start:
 
     tela.fill((176, 196, 222))
 
-    
-    #tela.blit(carteiro_img, (carteiro_x, carteiro_y))
-    #Linha importante= Faz o jogo ficar sempre atualizando, junto com o fundo
     # Linhas importantes = Fazem o jogo ficar sempre se atualizando
     tela.blit(carteiro_img, (carteiro_x, carteiro_y))
     tela.blit(background, (bg_e, -370))

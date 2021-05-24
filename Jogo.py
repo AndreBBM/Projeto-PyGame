@@ -4,11 +4,10 @@ from pygame.constants import QUIT
 
 pygame.init()
 
-
 # Criando a tela do jogo
 # Dimensões
-altura=500
-largura=700
+altura = 500
+largura = 700
 WIDTH_cart= "?"
 WIDTH_bura= "?"
 HEIGHT_cart= "?"
@@ -34,8 +33,8 @@ while Start:
     for event in pygame.event.get():
         # Para sair do jogo
         if event.type == QUIT:
-            Start=False
-    #Linha importante= Faz o jogo ficar sempre atualizando
+            Start = False
+    # Linha importante = Faz o jogo ficar sempre atualizando
     pygame.display.update()
 
 pygame.quit()

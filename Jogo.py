@@ -4,11 +4,10 @@ from pygame.constants import QUIT
 
 pygame.init()
 
-
 # Criando a tela do jogo
 # Dimensões
-altura=500
-largura=700
+altura = 500
+largura = 700
 WIDTH_cart= "?"
 WIDTH_bura= "?"
 HEIGHT_cart= "?"

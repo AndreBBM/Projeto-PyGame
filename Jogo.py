@@ -8,19 +8,19 @@ pygame.init()
 # Dimensões
 altura = 500
 largura = 700
-WIDTH_cart= "?"
-WIDTH_bura= "?"
-HEIGHT_cart= "?"
-HEIGHT_bura= "?"
+WIDTH_cart= 50
+WIDTH_bura= 10
+HEIGHT_cart= 30
+HEIGHT_bura= 10
 
 tela = pygame.display.set_mode((largura,altura))
 pygame.display.set_caption('Olha o Carteiro!')
 
 # Carregando imagens: (Só estruturando)
 background = pygame.image.load('').convert() # Não precisa de transparência aqui
-carteiro_img = pygame.image.load('').convert_alpha()
+carteiro_img = pygame.image.load('Imagens/MailmanFemale.png').convert_alpha()
 carteiro_img= pygame.transform.scale(carteiro_img, (WIDTH_cart, HEIGHT_cart))
-buracos_img = pygame.image.load('').convert_alpha()
+buracos_img = pygame.image.load('Imagens/buraco.png').convert_alpha()
 buracos_img = pygame.transform.scale(buracos_img, (WIDTH_bura, HEIGHT_bura))
 
 # Iniciando a estrutura 

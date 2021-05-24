@@ -8,15 +8,15 @@ pygame.init()
 # Dimensões
 altura = 400
 largura = 700
-WIDTH_cart= 100
+WIDTH_cart= 50
 WIDTH_bura= 100
-HEIGHT_cart= 200
+HEIGHT_cart= 50
 HEIGHT_bura= 200
 
 buraco_x="?"
 buraco_y="?"
-carteiro_y=100
-carteiro_x=140
+carteiro_y=300
+carteiro_x=0
 buraco_speed="?"
 carteiro_speedx="?"
 carteiro_speedy="?"

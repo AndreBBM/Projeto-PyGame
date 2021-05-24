@@ -6,7 +6,7 @@ pygame.init()
 
 # Criando a tela do jogo
 # Dimensões
-altura = 500
+altura = 400
 largura = 700
 WIDTH_cart= 50
 WIDTH_bura= 10
@@ -41,18 +41,20 @@ while Start:
     for event in pygame.event.get():
         # Para sair do jogo
         if event.type == QUIT:
-            Start=False
-        
-    buraco_x+=buraco_speed
+            Start = False
+    
+    # Velocidade do buraco no espaço    
+    buraco_x += buraco_speed
 
     # Pra não sair da sala
     if buraco_x > "?": #Tamanho máximo da imagem
-       buraco_x=" " #Tamanho inicial
+       buraco_x = " " #Tamanho inicial
 
     tela.fill((176, 196, 222))
     tela.blit(background, (0, 0))
     pygame.display.update()  # Mostra o novo frame para o jogador
-    #Linha importante= Faz o jogo ficar sempre atualizando
+
+    # Linha importante = Faz o jogo ficar sempre atualizando
     pygame.display.update()
 
 pygame.quit()

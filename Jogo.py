@@ -36,7 +36,7 @@ carteiro_img= pygame.transform.scale(carteiro_img, (WIDTH_cart, HEIGHT_cart))
 buracos_img = pygame.image.load('Imagens/buraco.png').convert_alpha()
 buracos_img = pygame.transform.scale(buracos_img, (WIDTH_bura, HEIGHT_bura))
 
-# Testando sprite- Carteiro
+# Testando sprite - Carteiro
 class Carteiro (pygame.sprite.Sprite):
     def __init__ (self):
         pygame.sprite.Sprite.__init__(self)
@@ -63,7 +63,6 @@ carteiro_andando=Carteiro()
 todas_as_sprites.add(carteiro_andando)
 
 
-#são criados 2 fundos, um incial e outro logo após o primeiro, que aparece quando o primeiro sai da tela
 # São criados 2 fundos, um incial e outro logo após o primeiro, que aparece quando o primeiro sai da tela
 bg_e = 0
 bg_d = background.get_width()
@@ -103,8 +102,8 @@ while Start:
 
 
     # Pra não sair da sala
-    if carteiro_x > 700: #Tamanho máximo da imagem
-       carteiro_x = 0 #Tamanho inicial
+    if carteiro_x > 700: # Tamanho máximo da imagem
+       carteiro_x = 0    # Tamanho inicial
 
     tela.fill((176, 196, 222))
 
@@ -114,10 +113,6 @@ while Start:
     tela.blit(background, (bg_d, -370))
     todas_as_sprites.draw(tela)
     todas_as_sprites.update()
-       
-   
-    #tela.blit(carteiro_img, (carteiro_x, carteiro_y))
-
 
     pygame.display.update()
 

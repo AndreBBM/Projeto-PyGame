@@ -17,8 +17,8 @@ HEIGHT_bura= 200
 
 buraco_x="?"
 buraco_y="?"
-carteiro_y=300
-carteiro_x=0
+carteiro_y=50
+carteiro_x=200
 buraco_speed="?"
 carteiro_speedx=1
 carteiro_speedy="?"
@@ -29,10 +29,38 @@ pygame.display.set_caption('Olha o Carteiro!')
 # Carregando imagens: (Só estruturando)
 background = pygame.image.load('Imagens/8bitNY.jpg').convert() # Não precisa de transparência aqui
 background= pygame.transform.scale(background, (1000, 800))
+carteiro_sheet= pygame.image.load('Imagens/MailmanFemaleSpriteSheet.png').convert_alpha()
 carteiro_img = pygame.image.load('Imagens/MailmanFemale.png').convert_alpha()
 carteiro_img= pygame.transform.scale(carteiro_img, (WIDTH_cart, HEIGHT_cart))
 buracos_img = pygame.image.load('Imagens/buraco.png').convert_alpha()
 buracos_img = pygame.transform.scale(buracos_img, (WIDTH_bura, HEIGHT_bura))
+
+# Testando sprite- Carteiro
+class Carteiro (pygame.sprite.Sprite):
+    def __init__ (self):
+        pygame.sprite.Sprite.__init__(self)
+        self.img1=carteiro_sheet.subsurface((0,0),(235,336))
+        self.img1= pygame.transform.scale(self.img1, (235-170,336-250))
+        self.img2=carteiro_sheet.subsurface((0,336),(235,336))
+        self.img2= pygame.transform.scale(self.img2, (235-170, 336-250))
+        self.img3=carteiro_sheet.subsurface((235,0),(235,336))
+        self.img3= pygame.transform.scale(self.img3, (235-170, 336-250))
+        self.imagens=[self.img1,self.img2,self.img3]
+        self.index_lista=0
+        self.image=self.imagens[self.index_lista]
+        self.rect = self.image.get_rect()
+        self.rect.center = (170, 300)
+
+    def update(self):
+        if self.index_lista>2:
+            self.index_lista=0
+        self.index_lista+=0.25
+        self.image=self.imagens[int(self.index_lista)]
+
+todas_as_sprites = pygame.sprite.Group()
+carteiro_andando=Carteiro()
+todas_as_sprites.add(carteiro_andando)
+
 
 #são criados 2 fundos, um incial e outro logo após o primeiro, que aparece quando o primeiro sai da tela
 bg_e = 0
@@ -74,13 +102,17 @@ while Start:
 
     tela.fill((176, 196, 222))
 
-    # Linha importante = Faz o jogo ficar sempre atualizando
-    tela.blit(carteiro_img, (carteiro_x, carteiro_y))
+    
+    #tela.blit(carteiro_img, (carteiro_x, carteiro_y))
     #Linha importante= Faz o jogo ficar sempre atualizando, junto com o fundo
-
     tela.blit(background, (bg_e, -370))
     tela.blit(background, (bg_d, -370))
-    tela.blit(carteiro_img, (carteiro_x, carteiro_y))
+    todas_as_sprites.draw(tela)
+    todas_as_sprites.update()
+       
+   
+    #tela.blit(carteiro_img, (carteiro_x, carteiro_y))
+
 
     pygame.display.update()
 

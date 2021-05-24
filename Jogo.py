@@ -26,6 +26,7 @@ pygame.display.set_caption('Olha o Carteiro!')
 
 # Carregando imagens: (Só estruturando)
 background = pygame.image.load('Imagens/8bitNY.jpg').convert() # Não precisa de transparência aqui
+background= pygame.transform.scale(background, (1500, 1400))
 carteiro_img = pygame.image.load('Imagens/MailmanFemale.png').convert_alpha()
 carteiro_img= pygame.transform.scale(carteiro_img, (WIDTH_cart, HEIGHT_cart))
 buracos_img = pygame.image.load('Imagens/buraco.png').convert_alpha()
@@ -36,7 +37,7 @@ Start = True
 
 # Loop Principal!
 while Start:
-    
+    tela.fill((176, 196, 222))
     # Tratando evento
     for event in pygame.event.get():
         # Para sair do jogo
@@ -49,9 +50,8 @@ while Start:
     if buraco_x > "?": #Tamanho máximo da imagem
        buraco_x=" " #Tamanho inicial
 
-    tela.fill((176, 196, 222))
-    tela.blit(background, (0, 0))
-    pygame.display.update()  # Mostra o novo frame para o jogador
+    tela.fill((0, 0, 0))  # Preenche com a cor branca
+    tela.blit(background, (0, -800))
     #Linha importante= Faz o jogo ficar sempre atualizando
     pygame.display.update()
 

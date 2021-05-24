@@ -25,7 +25,7 @@ tela = pygame.display.set_mode((largura,altura))
 pygame.display.set_caption('Olha o Carteiro!')
 
 # Carregando imagens: (Só estruturando)
-background = pygame.image.load('').convert() # Não precisa de transparência aqui
+background = pygame.image.load('Imagens/8bitNY.jpg').convert() # Não precisa de transparência aqui
 carteiro_img = pygame.image.load('Imagens/MailmanFemale.png').convert_alpha()
 carteiro_img= pygame.transform.scale(carteiro_img, (WIDTH_cart, HEIGHT_cart))
 buracos_img = pygame.image.load('Imagens/buraco.png').convert_alpha()

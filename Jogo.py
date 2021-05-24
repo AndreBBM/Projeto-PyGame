@@ -36,7 +36,7 @@ Start = True
 
 # Loop Principal!
 while Start:
-    tela.fill((176, 196, 222))
+    
     # Tratando evento
     for event in pygame.event.get():
         # Para sair do jogo
@@ -49,7 +49,9 @@ while Start:
     if buraco_x > "?": #Tamanho máximo da imagem
        buraco_x=" " #Tamanho inicial
 
-
+    tela.fill((176, 196, 222))
+    tela.blit(background, (0, 0))
+    pygame.display.update()  # Mostra o novo frame para o jogador
     #Linha importante= Faz o jogo ficar sempre atualizando
     pygame.display.update()
 

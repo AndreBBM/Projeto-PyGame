@@ -13,6 +13,14 @@ WIDTH_bura= 10
 HEIGHT_cart= 30
 HEIGHT_bura= 10
 
+buraco_x="?"
+buraco_y="?"
+carteiro_y="?"
+carteiro_x="?"
+buraco_speed="?"
+carteiro_speedx="?"
+carteiro_speedy="?"
+
 tela = pygame.display.set_mode((largura,altura))
 pygame.display.set_caption('Olha o Carteiro!')
 
@@ -33,8 +41,16 @@ while Start:
     for event in pygame.event.get():
         # Para sair do jogo
         if event.type == QUIT:
-            Start = False
-    # Linha importante = Faz o jogo ficar sempre atualizando
+            Start=False
+        
+    buraco_x+=buraco_speed
+
+    # Pra não sair da sala
+    if buraco_x > "?": #Tamanho máximo da imagem
+       buraco_x=" " #Tamanho inicial
+
+
+    #Linha importante= Faz o jogo ficar sempre atualizando
     pygame.display.update()
 
 pygame.quit()

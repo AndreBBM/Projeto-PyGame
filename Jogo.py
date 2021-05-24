@@ -1,7 +1,7 @@
 # Importando e iniciando pacotes
 from typing import Set
 import pygame
-from pygame.constants import QUIT
+from pygame.constants import *
 import Setup
 config = Setup.LoadConfig()
 pygame.init()
@@ -49,10 +49,18 @@ class Carteiro (pygame.sprite.Sprite):
         self.imagens=[self.img1,self.img2,self.img3]
         self.index_lista=0
         self.image=self.imagens[self.index_lista]
-        self.rect = self.image.get_rect()
+        self.rect=self.image.get_rect()
         self.rect.center = (170, 300)
+        self.pular=False
+
+    def pula(self):
+        self.pular = True
 
     def update(self):
+        if self.pular == True:
+            if self.rect.y > 200:
+                self.pular = False
+            self.rect.y -= 70
         if self.index_lista>2:
             self.index_lista=0
         self.index_lista+=0.25
@@ -87,6 +95,10 @@ while Start:
         # Para sair do jogo
         if event.type == QUIT:
             Start = False
+        # Para pular
+        if event.type == KEYDOWN:
+            if event.key == K_UP:
+                carteiro_andando.pula()
 
     # Velocidade com que o fundo se mexe
     bg_e -= 2.4

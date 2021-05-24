@@ -51,6 +51,7 @@ class Carteiro (pygame.sprite.Sprite):
         self.image=self.imagens[self.index_lista]
         self.rect=self.image.get_rect()
         self.rect.center = (170, 300)
+        self.inicial_y= carteiro_y
         self.pular=False
 
     def pula(self):
@@ -58,11 +59,18 @@ class Carteiro (pygame.sprite.Sprite):
 
     def update(self):
         if self.pular == True:
-            if self.rect.y > 200:
+            if self.rect.y <= 200:
                 self.pular = False
             self.rect.y -= 70
         if self.index_lista>2:
             self.index_lista=0
+        else:
+            if self.rect.y < self.inicial_y:
+                self.rect.y +=20
+            else:
+                self.rect.y= self.inicial_y
+
+            
         self.index_lista+=0.25
         self.image=self.imagens[int(self.index_lista)]
 

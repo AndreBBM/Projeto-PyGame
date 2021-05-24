@@ -29,10 +29,10 @@ while Start:
     tela.fill((176, 196, 222))
     for event in pygame.event.get():
         if event.type == QUIT:
-            pygame.quit()
-            exit()
-
+            Start=False
     #Linha importante= Faz o jogo ficar sempre atualizando
     pygame.display.update()
+
+pygame.quit()
 
 

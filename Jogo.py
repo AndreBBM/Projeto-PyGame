@@ -8,15 +8,15 @@ pygame.init()
 # Dimensões
 altura = 400
 largura = 700
-WIDTH_cart= 50
-WIDTH_bura= 10
-HEIGHT_cart= 30
-HEIGHT_bura= 10
+WIDTH_cart= 100
+WIDTH_bura= 100
+HEIGHT_cart= 200
+HEIGHT_bura= 200
 
 buraco_x="?"
 buraco_y="?"
-carteiro_y="?"
-carteiro_x="?"
+carteiro_y=100
+carteiro_x=140
 buraco_speed="?"
 carteiro_speedx="?"
 carteiro_speedy="?"
@@ -52,9 +52,10 @@ while Start:
 
     tela.fill((176, 196, 222))
     tela.blit(background, (0, 0))
-    pygame.display.update()  # Mostra o novo frame para o jogador
 
     # Linha importante = Faz o jogo ficar sempre atualizando
+    tela.blit(carteiro_img, (carteiro_x, carteiro_y))
+    #Linha importante= Faz o jogo ficar sempre atualizando
     pygame.display.update()
 
 pygame.quit()

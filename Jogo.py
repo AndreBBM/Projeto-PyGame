@@ -34,15 +34,8 @@ while Start:
     for event in pygame.event.get():
         # Para sair do jogo
         if event.type == QUIT:
-<<<<<<< HEAD
             Start=False
     #Linha importante= Faz o jogo ficar sempre atualizando
-=======
-            pygame.quit()
-            exit()
-
-    # Linha importante = Faz o jogo ficar sempre atualizando
->>>>>>> 9346c68fa3e0b6384bffcc3d48dd2f65531d7775
     pygame.display.update()
 
 pygame.quit()

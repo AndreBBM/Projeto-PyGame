@@ -1,7 +1,9 @@
 # Importando e iniciando pacotes
+from typing import Set
 import pygame
 from pygame.constants import QUIT
-
+import Setup
+config = Setup.LoadConfig()
 pygame.init()
 
 # Criando a tela do jogo
@@ -18,7 +20,7 @@ buraco_y="?"
 carteiro_y=300
 carteiro_x=0
 buraco_speed="?"
-carteiro_speedx="?"
+carteiro_speedx=1
 carteiro_speedy="?"
 
 tela = pygame.display.set_mode((largura,altura))
@@ -34,9 +36,16 @@ buracos_img = pygame.transform.scale(buracos_img, (WIDTH_bura, HEIGHT_bura))
 # Iniciando a estrutura 
 Start = True
 
+clock = pygame.time.Clock()
+FramesPerSecond=24
 # Loop Principal!
 while Start:
-    
+    config = Setup.LoadConfig()
+    altura = config['altura']
+    largura = config['largura']
+    FramesPerSecond = config['fps']
+    tela = pygame.display.set_mode((largura,altura))
+    clock.tick(FramesPerSecond)
     # Tratando evento
     for event in pygame.event.get():
         # Para sair do jogo
@@ -44,11 +53,11 @@ while Start:
             Start = False
     
     # Velocidade do buraco no espaço    
-    buraco_x += buraco_speed
+    carteiro_x += carteiro_speedx
 
     # Pra não sair da sala
-    if buraco_x > "?": #Tamanho máximo da imagem
-       buraco_x = " " #Tamanho inicial
+    if carteiro_x > 700: #Tamanho máximo da imagem
+       carteiro_x = 0 #Tamanho inicial
 
     tela.fill((176, 196, 222))
     tela.blit(background, (0, 0))

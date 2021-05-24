@@ -8,9 +8,9 @@ Objetivo Inicial: Como uma versão mais simples, temos em mente um joguinho em q
 
 Informações extras:
 Cenário do jogo passando;
-Bolinha como personagem
-Personagem deve pular os buracos
-Caso ele toque no buraco, morre e o jogo reinicia
+O personagem é um carteiro;
+Personagem deve pular os buracos;
+Caso ele toque no buraco, morre e o jogo reinicia;
 
 
 Instalando bibliotecas:

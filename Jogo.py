@@ -1,7 +1,7 @@
 # Importando e iniciando pacotes
 from typing import Set
 import pygame
-from pygame.constants import K_SPACE, QUIT
+from pygame.constants import *
 import Setup
 config = Setup.LoadConfig()
 pygame.init()
@@ -36,7 +36,7 @@ carteiro_img= pygame.transform.scale(carteiro_img, (WIDTH_cart, HEIGHT_cart))
 buracos_img = pygame.image.load('Imagens/buraco.png').convert_alpha()
 buracos_img = pygame.transform.scale(buracos_img, (WIDTH_bura, HEIGHT_bura))
 
-# Testando sprite- Carteiro
+# Testando sprite - Carteiro
 class Carteiro (pygame.sprite.Sprite):
     def __init__ (self):
         pygame.sprite.Sprite.__init__(self)
@@ -49,11 +49,18 @@ class Carteiro (pygame.sprite.Sprite):
         self.imagens=[self.img1,self.img2,self.img3]
         self.index_lista=0
         self.image=self.imagens[self.index_lista]
-        self.rect = self.image.get_rect()
+        self.rect=self.image.get_rect()
         self.rect.center = (170, 300)
-        self.pulo=False
+        self.pular=False
+
+    def pula(self):
+        self.pular = True
 
     def update(self):
+        if self.pular == True:
+            if self.rect.y > 200:
+                self.pular = False
+            self.rect.y -= 70
         if self.index_lista>2:
             self.index_lista=0
         self.index_lista+=0.25
@@ -66,7 +73,6 @@ carteiro_andando=Carteiro()
 todas_as_sprites.add(carteiro_andando)
 
 
-#são criados 2 fundos, um incial e outro logo após o primeiro, que aparece quando o primeiro sai da tela
 # São criados 2 fundos, um incial e outro logo após o primeiro, que aparece quando o primeiro sai da tela
 bg_e = 0
 bg_d = background.get_width()
@@ -91,9 +97,10 @@ while Start:
         # Para sair do jogo
         if event.type == QUIT:
             Start = False
-    if event.type == KEYDOWN:
-        if event.key==K_SPACE:
-            carteiro_andando.pular()
+        # Para pular
+        if event.type == KEYDOWN:
+            if event.key == K_UP:
+                carteiro_andando.pula()
 
     # Velocidade com que o fundo se mexe
     bg_e -= 2.4
@@ -109,8 +116,8 @@ while Start:
 
 
     # Pra não sair da sala
-    if carteiro_x > 700: #Tamanho máximo da imagem
-       carteiro_x = 0 #Tamanho inicial
+    if carteiro_x > 700: # Tamanho máximo da imagem
+       carteiro_x = 0    # Tamanho inicial
 
     tela.fill((176, 196, 222))
 
@@ -120,10 +127,6 @@ while Start:
     tela.blit(background, (bg_d, -370))
     todas_as_sprites.draw(tela)
     todas_as_sprites.update()
-       
-   
-    #tela.blit(carteiro_img, (carteiro_x, carteiro_y))
-
 
     pygame.display.update()
 

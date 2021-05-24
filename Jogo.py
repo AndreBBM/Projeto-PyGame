@@ -28,10 +28,15 @@ pygame.display.set_caption('Olha o Carteiro!')
 
 # Carregando imagens: (Só estruturando)
 background = pygame.image.load('Imagens/8bitNY.jpg').convert() # Não precisa de transparência aqui
+background= pygame.transform.scale(background, (1000, 800))
 carteiro_img = pygame.image.load('Imagens/MailmanFemale.png').convert_alpha()
 carteiro_img= pygame.transform.scale(carteiro_img, (WIDTH_cart, HEIGHT_cart))
 buracos_img = pygame.image.load('Imagens/buraco.png').convert_alpha()
 buracos_img = pygame.transform.scale(buracos_img, (WIDTH_bura, HEIGHT_bura))
+
+#são criados 2 fundos, um incial e outro logo após o primeiro, que aparece quando o primeiro sai da tela
+bg_e = 0
+bg_d = background.get_width()
 
 # Iniciando a estrutura 
 Start = True
@@ -51,20 +56,32 @@ while Start:
         # Para sair do jogo
         if event.type == QUIT:
             Start = False
-    
+
+    #velocidade com que o fundo se mexe
+    bg_e -= 2.4
+    bg_d -= 2.4
+
+    #quando os fundos saem completamente da tela eles voltam para o início para passarem de novo 
+    if bg_e < background.get_width() * -1:
+        bg_e = background.get_width()
+    if bg_d < background.get_width() * -1:
+        bg_d = background.get_width()
     # Velocidade do buraco no espaço    
-    carteiro_x += carteiro_speedx
 
     # Pra não sair da sala
     if carteiro_x > 700: #Tamanho máximo da imagem
        carteiro_x = 0 #Tamanho inicial
 
     tela.fill((176, 196, 222))
-    tela.blit(background, (0, 0))
 
     # Linha importante = Faz o jogo ficar sempre atualizando
     tela.blit(carteiro_img, (carteiro_x, carteiro_y))
-    #Linha importante= Faz o jogo ficar sempre atualizando
+    #Linha importante= Faz o jogo ficar sempre atualizando, junto com o fundo
+
+    tela.blit(background, (bg_e, -370))
+    tela.blit(background, (bg_d, -370))
+    tela.blit(carteiro_img, (carteiro_x, carteiro_y))
+
     pygame.display.update()
 
 pygame.quit()

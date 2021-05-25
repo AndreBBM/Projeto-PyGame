@@ -108,7 +108,10 @@ while Start:
         # Para pular
         if event.type == KEYDOWN:
             if event.key == K_UP:
-                carteiro_andando.pula()
+                if carteiro_andando.rect.y!= carteiro_andando.inicial_y:
+                    pass
+                else:
+                    carteiro_andando.pula()
 
     # Velocidade com que o fundo se mexe
     bg_e -= 2.4

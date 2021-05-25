@@ -10,20 +10,28 @@ pygame.init()
 # Dimensões da tela
 altura = 400
 largura = 700
-WIDTH_cart= 50
-WIDTH_bura= 100
-HEIGHT_cart= 50
-HEIGHT_bura= 200
-
 tela = pygame.display.set_mode((largura,altura))
 pygame.display.set_caption('Olha o Carteiro!')
+
+# Dimensões das imagens colocadas
+WIDTH_cart= 50
+WIDTH_bura= 100
+WIDTH_caixa= 50
+HEIGHT_cart= 50
+HEIGHT_bura= 200
+HEIGHT_caixa= 50
 
 # Posições dos elementos
 buraco_x="?"
 buraco_y="?"
+caixa_x="?"
+caixa_y="?"
 carteiro_y=300
 carteiro_x=175
+
+# Velocidade dos obstáculos
 buraco_speed="?"
+caixa_speed="?"
 
 # Carregando imagens: somente estruturando
 background = pygame.image.load('Imagens/8bitNY.jpg').convert() # Não precisa de transparência aqui
@@ -33,6 +41,8 @@ carteiro_img = pygame.image.load('Imagens/MailmanFemale.png').convert_alpha()
 carteiro_img= pygame.transform.scale(carteiro_img, (WIDTH_cart, HEIGHT_cart))
 buracos_img = pygame.image.load('Imagens/buraco.png').convert_alpha()
 buracos_img = pygame.transform.scale(buracos_img, (WIDTH_bura, HEIGHT_bura))
+caixas_img = pygame.image.load('Caixa.jpg').convert_alpha()
+caixas_img = pygame.transform.scale(caixas_img, (WIDTH_caixa, HEIGHT_caixa))
 
 # Testando sprite - Carteiro
 class Carteiro (pygame.sprite.Sprite):
@@ -120,9 +130,6 @@ while Start:
         bg_e = background.get_width()
     if bg_d < background.get_width() * -1:
         bg_d = background.get_width()
-    
-    # Velocidade do buraco no espaço    
-
 
     # Pra não sair da sala
     if carteiro_x > 700: # Tamanho máximo da imagem

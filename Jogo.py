@@ -24,8 +24,6 @@ buraco_y="?"
 carteiro_y=300
 carteiro_x=175
 buraco_speed="?"
-carteiro_speedx=1
-carteiro_speedy="?"
 
 # Carregando imagens: somente estruturando
 background = pygame.image.load('Imagens/8bitNY.jpg').convert() # Não precisa de transparência aqui

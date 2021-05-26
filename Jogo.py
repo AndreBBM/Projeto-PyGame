@@ -3,6 +3,7 @@ from typing import Set
 import pygame
 from pygame.constants import *
 from random import *
+from Classes import *
 import Setup
 config = Setup.LoadConfig()
 pygame.init()
@@ -20,17 +21,14 @@ WIDTH_pole= 100
 WIDTH_cone= 50
 WIDTH_bura= 100
 WIDTH_caixa= 50
+
 HEIGHT_cart= 50
 HEIGHT_pole= 200
 HEIGHT_cone= 50
 HEIGHT_bura= 50
 HEIGHT_caixa= 50
 
-# Posições dos elementos
-buraco_x="?"
-buraco_y="?"
-caixa_x="?"
-caixa_y="?"
+# Posição inicial do carteiro
 carteiro_y=300
 carteiro_x=175
 
@@ -113,26 +111,11 @@ class Cone(pygame.sprite.Sprite):
         #Criando mascara da sprite
         self.mask=pygame.mask.from_surface(self.image)
 
-
         self.rect.center=(300,290)
     def update(self):
         if self.rect.topright[0]<0:
             self.rect.x=800
         self.rect.x-= 2
-
-# Criando classe da caixa
-class Caixa (pygame.sprite.Sprite):
-    def __init__(self):
-        pygame.sprite.Sprite.__init__(self)
-        self.image=caixas_img
-        self.image=pygame.transform.scale(self.image,(50,50))
-        self.rect=self.image.get_rect()
-        self.rect.center=(100,300)
-    def update(self):
-        if self.rect.topright[0]<0:
-            self.rect.x=500
-        self.rect.x-=2
-
 
 todas_as_sprites = pygame.sprite.Group()
 colisoes_com_carteiro= pygame.sprite.Group()
@@ -140,7 +123,7 @@ cone = Cone()
 colisoes_com_carteiro.add(cone)
 poste = Poste()
 carteiro_andando = Carteiro()
-caixa = Caixa()
+caixa = Caixa(caixas_img)
 todas_as_sprites.add(poste)
 todas_as_sprites.add(cone)
 todas_as_sprites.add(caixa)

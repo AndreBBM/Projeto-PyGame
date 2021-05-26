@@ -147,10 +147,11 @@ todas_as_sprites.add(caixa)
 todas_as_sprites.add(carteiro_andando)
 
 #Grupo colisão cone-carteira
-grupo_obstaculos=pygame.sprite.Group()
-grupo_obstaculos.add(cone)
+grupo_obstaculo_cone=pygame.sprite.Group()
+grupo_obstaculo_cone.add(cone)
 
-
+grupo_colisao_poste=pygame.sprite.Group()
+grupo_colisao_poste.add()
 
 # São criados 2 fundos, um incial e outro logo após o primeiro, que aparece quando o primeiro sai da tela
 bg_e = 0
@@ -198,7 +199,7 @@ while Start:
     if carteiro_x > 700: # Tamanho máximo da imagem
        carteiro_x = 0    # Tamanho inicial
 
-    colisoes=pygame.sprite.spritecollide(carteiro_andando,grupo_obstaculos,False,pygame.sprite.collide_mask)
+    colisoes=pygame.sprite.spritecollide(carteiro_andando,grupo_obstaculo_cone,False,pygame.sprite.collide_mask)
     
     tela.fill((176, 196, 222))
     # Linhas importantes = Fazem o jogo ficar sempre se atualizando

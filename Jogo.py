@@ -143,13 +143,14 @@ carteiro_andando = Carteiro()
 caixa = Caixa()
 todas_as_sprites.add(poste)
 todas_as_sprites.add(cone)
+todas_as_sprites.add(caixa)
 todas_as_sprites.add(carteiro_andando)
 
 #Grupo colisão cone-carteira
 grupo_obstaculos=pygame.sprite.Group()
 grupo_obstaculos.add(cone)
 
-todas_as_sprites.add(caixa)
+
 
 # São criados 2 fundos, um incial e outro logo após o primeiro, que aparece quando o primeiro sai da tela
 bg_e = 0

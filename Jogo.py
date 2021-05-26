@@ -21,13 +21,11 @@ pygame.display.set_caption('Olha o Carteiro!')
 WIDTH_cart = 50
 WIDTH_pole = 100
 WIDTH_cone = 50
-WIDTH_bura = 100
 WIDTH_caixa = 50
 
 HEIGHT_cart = 50
 HEIGHT_pole = 200
 HEIGHT_cone = 50
-HEIGHT_bura = 50
 HEIGHT_caixa = 50
 
 # Posição inicial do carteiro
@@ -42,8 +40,6 @@ carteiro_img = pygame.image.load('Imagens/MailmanFemale.png').convert_alpha()
 carteiro_img = pygame.transform.scale(carteiro_img, (WIDTH_cart, HEIGHT_cart))
 poste_img = pygame.image.load('Imagens/poste.png').convert_alpha()
 poste_img = pygame.transform.scale(poste_img, (WIDTH_pole, HEIGHT_pole))
-buracos_img = pygame.image.load('Imagens/buraco.png').convert_alpha()
-buracos_img = pygame.transform.scale(buracos_img, (WIDTH_bura, HEIGHT_bura))
 caixas_img = pygame.image.load('Imagens/Caixa.jpg').convert_alpha()
 caixas_img = pygame.transform.scale(caixas_img, (WIDTH_caixa, HEIGHT_caixa))
 cone_img = pygame.image.load('Imagens/cone.png').convert_alpha()
@@ -182,7 +178,6 @@ while Start:
 
     colisoes = pygame.sprite.spritecollide(carteiro_andando, grupo_obstaculo, False, pygame.sprite.collide_mask)
 
-    tela.fill((176, 196, 222))
     # Linhas importantes = Fazem o jogo ficar sempre se atualizando
     tela.blit(background, (bg_e, -270))
     tela.blit(background, (bg_d, -270))

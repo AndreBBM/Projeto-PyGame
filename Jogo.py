@@ -132,6 +132,7 @@ while Start:
         # Para sair do jogo
         if event.type == QUIT:
             Start = False
+
         # Para pular
         if event.type == KEYDOWN:
             if event.key == K_UP:

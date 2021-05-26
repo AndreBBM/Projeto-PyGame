@@ -57,10 +57,11 @@ class Quadrado(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         # Criando máscara da sprite
         self.mask = pygame.mask.from_surface(self.image)
-        self.rect.center = (300, 270)
+        self.rect.center = (300,270)
         self.referencia_poste = poste
+        self.rect.centerx = self.referencia_poste.rect.centerx
 
     def update(self):
         if self.rect.topright[0] < 0:
             self.rect.centerx = self.referencia_poste.rect.centerx
-        self.rect.x -= 4
+        self.rect.x -= 2

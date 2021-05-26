@@ -49,6 +49,7 @@ clock = pygame.time.Clock()
 FramePerSecond = 100
 velocidade_tela = 2.4
 
+
 # Loop Principal!
 while Start:
     clock.tick(FramePerSecond)
@@ -81,9 +82,12 @@ while Start:
         if opcao == 1:
             obstaculo = Cone(cone_img)
             
+            
         if opcao == 2:
-            obstaculo = Quadrado(caixas_img)
-            todas_as_sprites.add(Poste(poste_img))
+            referencia= Poste(poste_img)
+            obstaculo = Quadrado(poste_img,referencia)
+            todas_as_sprites.add(referencia)
+            
         todas_as_sprites.add(obstaculo)
         grupo_obstaculo.add(obstaculo)        
 
@@ -100,6 +104,7 @@ while Start:
         pass
     else:
         todas_as_sprites.update()
+        grupo_obstaculo.update()
 
     pygame.display.update()
 

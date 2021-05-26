@@ -88,20 +88,24 @@ class Cone(pygame.sprite.Sprite):
     def update(self):
         if self.rect.x < -self.rect.width:
             self.kill()
-        self.rect.x -= 4
+        self.rect.x -= 2
 
 class Quadrado(pygame.sprite.Sprite):
-    def __init__(self, caixas_img):
+    def __init__(self, poste_img,poste):
         pygame.sprite.Sprite.__init__(self)
-        self.image = caixas_img
-        self.image = pygame.transform.scale(self.image, (60, 60))
+        self.image = poste_img
+        self.image = poste_img.subsurface((0, 0), (100, 60))
+        #self.image = pygame.transform.scale(self.image, (60, 60))
         self.rect = self.image.get_rect()
         # Criando máscara da sprite
-        # self.mask = pygame.mask.from_surface(self.image)
-        self.rect.x = largura+20
-        self.rect.y = chao-self.rect.height-130
+        #self.mask = pygame.mask.from_surface(self.image)
+        #self.rect.x = largura+20
+        #self.rect.y = chao-self.rect.height-130
+        self.rect.center = (300,280)
+        self.referencia_poste = poste
+        self.rect.centerx = self.referencia_poste.rect.centerx
 
     def update(self):
-        if self.rect.x < -self.rect.width:
-            self.kill()
-        self.rect.x -= 4
+        if self.rect.topright[0] < 0:
+            self.rect.centerx = self.referencia_poste.rect.centerx
+        self.rect.x -= 2

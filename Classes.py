@@ -22,11 +22,11 @@ class Poste (pygame.sprite.Sprite):
         self.rect=self.image.get_rect()
         #mascara de colisão
         self.mask=pygame.mask.from_surface(self.image)
-        self.rect.center=(300,220)
+        self.rect.center=(700,220)
     def update(self):
         if self.rect.topright[0]<0:
             self.rect.x=700
-        self.rect.x-=5
+        self.rect.x-=4
 
 # Classe do cone
 class Cone(pygame.sprite.Sprite):
@@ -37,8 +37,8 @@ class Cone(pygame.sprite.Sprite):
         self.rect=self.image.get_rect()
         #Criando mascara da sprite
         self.mask=pygame.mask.from_surface(self.image)
-        self.rect.center=(300,290)
+        self.rect.center=(700,290)
     def update(self):
         if self.rect.topright[0]<0:
             self.rect.x=800
-        self.rect.x-= 2
+        self.rect.x-=4

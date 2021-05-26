@@ -52,7 +52,7 @@ cone_img = pygame.transform.scale(cone_img, (WIDTH_cone, HEIGHT_cone))
 class Carteiro (pygame.sprite.Sprite):
     def __init__ (self):
         pygame.sprite.Sprite.__init__(self)
-        #Faces da carteira e dimensionando escala
+        # Faces da carteira e dimensionando escala
         self.img1=carteiro_sheet.subsurface((0,0),(235,336))
         self.img1=pygame.transform.scale(self.img1, (235-170,336-250))
         self.img2=carteiro_sheet.subsurface((0,336),(235,336))
@@ -63,7 +63,7 @@ class Carteiro (pygame.sprite.Sprite):
         self.index_lista=0
         self.image=self.imagens[self.index_lista]
         self.rect=self.image.get_rect()
-        #Criando máscara da sprite
+        # Criando máscara da sprite
         self.mask=pygame.mask.from_surface(self.image)
         
         self.rect.center = (170, 300)
@@ -96,36 +96,36 @@ class Quadrado(pygame.sprite.Sprite):
         self.image=caixas_img
         self.image=pygame.transform.scale(self.image,(60,60))
         self.rect=self.image.get_rect()
-        #Criando mascara da sprite
+        # Criando máscara da sprite
         self.mask=pygame.mask.from_surface(self.image)
         self.rect.center=(300,150)
         self.referencia_poste=poste
     def update(self):
         if self.rect.topright[0]<0:
             self.rect.centerx= self.referencia_poste.rect.centerx
-        self.rect.x-=5
+        self.rect.x-=4
 
 
 todas_as_sprites = pygame.sprite.Group()
-colisoes_com_carteiro= pygame.sprite.Group()
+colisoes_com_carteiro = pygame.sprite.Group()
+carteiro_andando = Carteiro()
+poste = Poste(poste_img)
+quadrado = Quadrado(poste)
+'''
 cone = Cone(cone_img)
 colisoes_com_carteiro.add(cone)
 poste = Poste(poste_img)
-carteiro_andando = Carteiro()
 quadrado = Quadrado(poste)
 caixa = Caixa(caixas_img)
 todas_as_sprites.add(poste)
 todas_as_sprites.add(cone)
 todas_as_sprites.add(caixa)
+'''
 #todas_as_sprites.add(quadrado)-- Ele tá lá, mas não desenhado
 todas_as_sprites.add(carteiro_andando)
 
-#Grupo colisão cone-carteira
-grupo_obstaculo_cone=pygame.sprite.Group()
-grupo_obstaculo_cone.add(cone)
-
-grupo_colisao_poste=pygame.sprite.Group()
-grupo_colisao_poste.add(quadrado)
+#Grupo colisão com a carteira
+grupo_obstaculo=pygame.sprite.Group()
 
 obstaculo=None
 
@@ -138,17 +138,11 @@ Start = True
 
 # Rodando o cenário
 clock = pygame.time.Clock()
-FramesPerSecond=24
+FramesPerSecond=100
 velocidade_tela=2.4
 
-contador=0
 # Loop Principal!
 while Start:
-    config = Setup.LoadConfig()
-    altura = config['altura']
-    largura = config['largura']
-    FramesPerSecond = config['fps']
-    tela = pygame.display.set_mode((largura,altura))
     clock.tick(FramesPerSecond)
     # Tratando eventos
     for event in pygame.event.get():
@@ -170,20 +164,20 @@ while Start:
     # Quando os fundos saem completamente da tela, eles voltam para o início para passarem novamente
     if bg_e < background.get_width() * -1:
         bg_e = background.get_width()
+    
     if bg_d < background.get_width() * -1:
         bg_d = background.get_width()
 
-    # Para o carteiro não sair da sala
-    if carteiro_x > 700: # Tamanho máximo da imagem
-       carteiro_x = 0    # Tamanho inicial
-    
-    if obstaculo==None:
-        opc
+    if obstaculo==None or obstaculo.rect.x < 300:
+        opcao = random.randint(1, 2)
+        if opcao == 1:
+            obstaculo = Cone(cone_img)
+        if opcao == 2:
+            obstaculo = Poste(poste_img)
+        todas_as_sprites.add(obstaculo)
+        grupo_obstaculo.add(obstaculo)
 
-
-    colisoes=pygame.sprite.spritecollide(carteiro_andando,grupo_obstaculo_cone,False,pygame.sprite.collide_mask)
-    colisao_poste=pygame.sprite.spritecollide(carteiro_andando,grupo_colisao_poste,False,pygame.sprite.collide_mask)
-    
+    colisoes=pygame.sprite.spritecollide(carteiro_andando,grupo_obstaculo,False,pygame.sprite.collide_mask)
     
     tela.fill((176, 196, 222))
     # Linhas importantes = Fazem o jogo ficar sempre se atualizando
@@ -191,17 +185,14 @@ while Start:
     tela.blit(background, (bg_d, -370))
     todas_as_sprites.draw(tela)
 
-    
-    if colisoes or colisao_poste:
+    # Caso colida com algum dos obstáculos, o fundo para de andar
+    if colisoes:
         velocidade_tela=0
         pass
     else:
         todas_as_sprites.update()
-        grupo_colisao_poste.update()
         
     pygame.display.update()
 
 # Encerrando o PyGame
 pygame.quit()
-
-

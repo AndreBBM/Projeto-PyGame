@@ -101,7 +101,7 @@ class Poste (pygame.sprite.Sprite):
     def update(self):
         if self.rect.topright[0]<0:
             self.rect.x=700
-        self.rect.x-=5
+        self.rect.x-=2
 
 # Criando classe do cone
 class Cone(pygame.sprite.Sprite):
@@ -118,7 +118,7 @@ class Cone(pygame.sprite.Sprite):
     def update(self):
         if self.rect.topright[0]<0:
             self.rect.x=800
-        self.rect.x-= 5
+        self.rect.x-= 2
 
 # Criando classe da caixa
 class Caixa (pygame.sprite.Sprite):
@@ -130,8 +130,8 @@ class Caixa (pygame.sprite.Sprite):
         self.rect.center=(100,300)
     def update(self):
         if self.rect.topright[0]<0:
-            self.rect.x=900
-        self.rect.x-=5
+            self.rect.x=500
+        self.rect.x-=2
 
 
 todas_as_sprites = pygame.sprite.Group()
@@ -162,7 +162,7 @@ Start = True
 # Rodando o cenário
 clock = pygame.time.Clock()
 FramesPerSecond=24
-
+velocidade_tela=2.4
 # Loop Principal!
 while Start:
     config = Setup.LoadConfig()
@@ -185,8 +185,8 @@ while Start:
                     carteiro_andando.pula()
 
     # Velocidade com que o fundo se mexe
-    bg_e -= 2.4
-    bg_d -= 2.4
+    bg_e -= velocidade_tela
+    bg_d -= velocidade_tela
 
     # Quando os fundos saem completamente da tela, eles voltam para o início para passarem novamente
     if bg_e < background.get_width() * -1:
@@ -198,16 +198,21 @@ while Start:
     if carteiro_x > 700: # Tamanho máximo da imagem
        carteiro_x = 0    # Tamanho inicial
 
+    colisoes=pygame.sprite.spritecollide(carteiro_andando,grupo_obstaculos,False,pygame.sprite.collide_mask)
+    
     tela.fill((176, 196, 222))
-
     # Linhas importantes = Fazem o jogo ficar sempre se atualizando
     tela.blit(background, (bg_e, -370))
     tela.blit(background, (bg_d, -370))
     todas_as_sprites.draw(tela)
-    todas_as_sprites.update()
 
+    if colisoes:
+        velocidade_tela=0
+        pass
+    else:
+        todas_as_sprites.update()
+        
     pygame.display.update()
-
 
 # Encerrando o PyGame
 pygame.quit()

@@ -88,22 +88,6 @@ class Carteiro (pygame.sprite.Sprite):
         self.index_lista+=0.25
         self.image=self.imagens[int(self.index_lista)]
 
-# Classe do poste = Obstáculo de cima 
-class Poste (pygame.sprite.Sprite):
-    def __init__(self):
-        pygame.sprite.Sprite.__init__(self)
-        self.image=poste_img
-        self.image=pygame.transform.scale(self.image,(100,200))
-        self.rect=self.image.get_rect()
-        #mascara de colisão
-        self.mask=pygame.mask.from_surface(self.image)
-
-        self.rect.center=(300,220)
-    def update(self):
-        if self.rect.topright[0]<0:
-            self.rect.x=700
-        self.rect.x-=5
-
 # Criando classe do cone
 class Cone(pygame.sprite.Sprite):
     def __init__(self):
@@ -140,7 +124,7 @@ todas_as_sprites = pygame.sprite.Group()
 colisoes_com_carteiro= pygame.sprite.Group()
 cone = Cone()
 colisoes_com_carteiro.add(cone)
-poste = Poste()
+poste = Poste(poste_img)
 carteiro_andando = Carteiro()
 quadrado=Quadrado(poste)
 caixa = Caixa(caixas_img)

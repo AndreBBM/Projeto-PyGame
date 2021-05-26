@@ -69,6 +69,9 @@ class Carteiro (pygame.sprite.Sprite):
         self.index_lista=0
         self.image=self.imagens[self.index_lista]
         self.rect=self.image.get_rect()
+        #Criando máscara da sprite
+        self.mask=pygame.mask.from_surface(self.image)
+        
         self.rect.center = (170, 300)
         self.inicial_y= carteiro_y - 250//4
         self.pular=False
@@ -112,6 +115,10 @@ class Cone(pygame.sprite.Sprite):
         self.image=cone_img
         self.image=pygame.transform.scale(self.image,(60,60))
         self.rect=self.image.get_rect()
+        #Criando mascara da sprite
+        self.mask=pygame.mask.from_surface(self.image)
+
+
         self.rect.center=(300,290)
     def update(self):
         if self.rect.topright[0]<0:
@@ -130,6 +137,9 @@ todas_as_sprites.add(poste)
 todas_as_sprites.add(cone)
 todas_as_sprites.add(carteiro_andando)
 
+#Grupo colisão cone-carteira
+grupo_obstaculos=pygame.sprite.Group()
+grupo_obstaculos.add(cone)
 
 
 # São criados 2 fundos, um incial e outro logo após o primeiro, que aparece quando o primeiro sai da tela

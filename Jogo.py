@@ -50,7 +50,7 @@ poste_img = pygame.image.load('Imagens/poste.png').convert_alpha()
 poste_img = pygame.transform.scale(poste_img, (WIDTH_pole, HEIGHT_pole))
 buracos_img = pygame.image.load('Imagens/buraco.png').convert_alpha()
 buracos_img = pygame.transform.scale(buracos_img, (WIDTH_bura, HEIGHT_bura))
-caixas_img = pygame.image.load('Caixa.jpg').convert_alpha()
+caixas_img = pygame.image.load('Imagens/Caixa.jpg').convert_alpha()
 caixas_img = pygame.transform.scale(caixas_img, (WIDTH_caixa, HEIGHT_caixa))
 
 # Testando sprite - Carteiro

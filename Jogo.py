@@ -88,21 +88,6 @@ class Carteiro (pygame.sprite.Sprite):
         self.index_lista+=0.25
         self.image=self.imagens[int(self.index_lista)]
 
-# Criando classe do cone
-class Cone(pygame.sprite.Sprite):
-    def __init__(self):
-        pygame.sprite.Sprite.__init__(self)
-        self.image=cone_img
-        self.image=pygame.transform.scale(self.image,(60,60))
-        self.rect=self.image.get_rect()
-        #Criando mascara da sprite
-        self.mask=pygame.mask.from_surface(self.image)
-
-        self.rect.center=(300,290)
-    def update(self):
-        if self.rect.topright[0]<0:
-            self.rect.x=800
-        self.rect.x-= 2
 
 class Quadrado(pygame.sprite.Sprite):
     def __init__(self,poste):
@@ -122,11 +107,11 @@ class Quadrado(pygame.sprite.Sprite):
 
 todas_as_sprites = pygame.sprite.Group()
 colisoes_com_carteiro= pygame.sprite.Group()
-cone = Cone()
+cone = Cone(cone_img)
 colisoes_com_carteiro.add(cone)
 poste = Poste(poste_img)
 carteiro_andando = Carteiro()
-quadrado=Quadrado(poste)
+quadrado = Quadrado(poste)
 caixa = Caixa(caixas_img)
 todas_as_sprites.add(poste)
 todas_as_sprites.add(cone)

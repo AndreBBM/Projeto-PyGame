@@ -2,7 +2,7 @@
 from typing import Set
 import pygame
 from pygame.constants import *
-import random
+from random import *
 import Setup
 config = Setup.LoadConfig()
 pygame.init()
@@ -27,7 +27,8 @@ pygame.display.set_caption('Olha o Carteiro!')
 WIDTH_bura= 100
 WIDTH_caixa= 50
 HEIGHT_cart= 50
-HEIGHT_bura= 200
+HEIGHT_pole= 200
+HEIGHT_bura= 50
 HEIGHT_caixa= 50
 
 # Posições dos elementos
@@ -38,16 +39,12 @@ caixa_y="?"
 carteiro_y=300
 carteiro_x=175
 
-# Velocidade dos obstáculos
-buraco_speed="?"
-caixa_speed="?"
-
 # Carregando imagens: somente estruturando
 background = pygame.image.load('Imagens/8bitNY.jpg').convert() # Não precisa de transparência aqui
-background= pygame.transform.scale(background, (1000, 800))
-carteiro_sheet= pygame.image.load('Imagens/MailmanFemaleSpriteSheet.png').convert_alpha()
+background = pygame.transform.scale(background, (1000, 800))
+carteiro_sheet = pygame.image.load('Imagens/MailmanFemaleSpriteSheet.png').convert_alpha()
 carteiro_img = pygame.image.load('Imagens/MailmanFemale.png').convert_alpha()
-carteiro_img= pygame.transform.scale(carteiro_img, (WIDTH_cart, HEIGHT_cart))
+carteiro_img = pygame.transform.scale(carteiro_img, (WIDTH_cart, HEIGHT_cart))
 poste_img = pygame.image.load('Imagens/poste.png').convert_alpha()
 poste_img = pygame.transform.scale(poste_img, (WIDTH_pole, HEIGHT_pole))
 buracos_img = pygame.image.load('Imagens/buraco.png').convert_alpha()
@@ -63,11 +60,11 @@ class Carteiro (pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         #Faces da carteira e dimensionando escala
         self.img1=carteiro_sheet.subsurface((0,0),(235,336))
-        self.img1= pygame.transform.scale(self.img1, (235-170,336-250))
+        self.img1=pygame.transform.scale(self.img1, (235-170,336-250))
         self.img2=carteiro_sheet.subsurface((0,336),(235,336))
-        self.img2= pygame.transform.scale(self.img2, (235-170, 336-250))
+        self.img2=pygame.transform.scale(self.img2, (235-170, 336-250))
         self.img3=carteiro_sheet.subsurface((235,0),(235,336))
-        self.img3= pygame.transform.scale(self.img3, (235-170, 336-250))
+        self.img3=pygame.transform.scale(self.img3, (235-170, 336-250))
         self.imagens=[self.img1,self.img2,self.img3]
         self.index_lista=0
         self.image=self.imagens[self.index_lista]
@@ -91,12 +88,11 @@ class Carteiro (pygame.sprite.Sprite):
                 self.rect.y +=5
             else:
                 self.rect.y= self.inicial_y
-
             
         self.index_lista+=0.25
         self.image=self.imagens[int(self.index_lista)]
 
-#Classe do poste= Obstáculo de cima 
+# Classe do poste = Obstáculo de cima 
 class Poste (pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
@@ -128,6 +124,8 @@ cone=Cone()
 poste=Poste()
 carteiro_andando=Carteiro()
 colisoes_com_carteiro.add(cone)
+poste = Poste()
+carteiro_andando = Carteiro()
 todas_as_sprites.add(poste)
 todas_as_sprites.add(cone)
 todas_as_sprites.add(carteiro_andando)
@@ -153,7 +151,7 @@ while Start:
     FramesPerSecond = config['fps']
     tela = pygame.display.set_mode((largura,altura))
     clock.tick(FramesPerSecond)
-    # Tratando evento
+    # Tratando eventos
     for event in pygame.event.get():
         # Para sair do jogo
         if event.type == QUIT:
@@ -176,7 +174,7 @@ while Start:
     if bg_d < background.get_width() * -1:
         bg_d = background.get_width()
 
-    # Pra não sair da sala
+    # Para o carteiro não sair da sala
     if carteiro_x > 700: # Tamanho máximo da imagem
        carteiro_x = 0    # Tamanho inicial
 
@@ -189,6 +187,7 @@ while Start:
     todas_as_sprites.update()
 
     pygame.display.update()
+
 
 # Encerrando o PyGame
 pygame.quit()

@@ -2,6 +2,7 @@
 from typing import Set
 import pygame
 from pygame.constants import *
+from random import*
 import Setup
 config = Setup.LoadConfig()
 pygame.init()
@@ -11,9 +12,9 @@ pygame.init()
 altura = 400
 largura = 700
 WIDTH_cart= 50
-WIDTH_bura= 100
+WIDTH_pole= 100
 HEIGHT_cart= 50
-HEIGHT_bura= 200
+HEIGHT_pole= 200
 
 tela = pygame.display.set_mode((largura,altura))
 pygame.display.set_caption('Olha o Carteiro!')
@@ -31,13 +32,14 @@ background= pygame.transform.scale(background, (1000, 800))
 carteiro_sheet= pygame.image.load('Imagens/MailmanFemaleSpriteSheet.png').convert_alpha()
 carteiro_img = pygame.image.load('Imagens/MailmanFemale.png').convert_alpha()
 carteiro_img= pygame.transform.scale(carteiro_img, (WIDTH_cart, HEIGHT_cart))
-buracos_img = pygame.image.load('Imagens/buraco.png').convert_alpha()
-buracos_img = pygame.transform.scale(buracos_img, (WIDTH_bura, HEIGHT_bura))
+poste_img = pygame.image.load('Imagens/poste.png').convert_alpha()
+poste_img = pygame.transform.scale(poste_img, (WIDTH_pole, HEIGHT_pole))
 
 # Testando sprite - Carteiro
 class Carteiro (pygame.sprite.Sprite):
     def __init__ (self):
         pygame.sprite.Sprite.__init__(self)
+        #Faces da carteira e dimensionando escala
         self.img1=carteiro_sheet.subsurface((0,0),(235,336))
         self.img1= pygame.transform.scale(self.img1, (235-170,336-250))
         self.img2=carteiro_sheet.subsurface((0,336),(235,336))
@@ -72,11 +74,26 @@ class Carteiro (pygame.sprite.Sprite):
         self.index_lista+=0.25
         self.image=self.imagens[int(self.index_lista)]
 
-
+#Classe do poste= Obstáculo de cima 
+class Poste (pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image=poste_img
+        self.image=pygame.transform.scale(self.image,(100,200))
+        self.rect=self.image.get_rect()
+        self.rect.center=(300,220)
+    def update(self):
+        if self.rect.topright[0]<0:
+            self.rect.x=700
+        self.rect.x-=5
 
 todas_as_sprites = pygame.sprite.Group()
+poste=Poste()
 carteiro_andando=Carteiro()
+todas_as_sprites.add(poste)
 todas_as_sprites.add(carteiro_andando)
+
+
 
 
 # São criados 2 fundos, um incial e outro logo após o primeiro, que aparece quando o primeiro sai da tela
@@ -131,7 +148,6 @@ while Start:
     tela.fill((176, 196, 222))
 
     # Linhas importantes = Fazem o jogo ficar sempre se atualizando
-    tela.blit(carteiro_img, (carteiro_x, carteiro_y))
     tela.blit(background, (bg_e, -370))
     tela.blit(background, (bg_d, -370))
     todas_as_sprites.draw(tela)

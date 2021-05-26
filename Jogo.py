@@ -2,7 +2,7 @@
 from typing import Set
 import pygame
 from pygame.constants import *
-from random import*
+import random
 import Setup
 config = Setup.LoadConfig()
 pygame.init()
@@ -17,8 +17,10 @@ pygame.display.set_caption('Olha o Carteiro!')
 # Dimensões das imagens colocadas
 WIDTH_cart= 50
 WIDTH_pole= 100
+WIDTH_cone= 50
 HEIGHT_cart= 50
 HEIGHT_pole= 200
+HEIGHT_cone= 50
 
 tela = pygame.display.set_mode((largura,altura))
 pygame.display.set_caption('Olha o Carteiro!')
@@ -52,6 +54,8 @@ buracos_img = pygame.image.load('Imagens/buraco.png').convert_alpha()
 buracos_img = pygame.transform.scale(buracos_img, (WIDTH_bura, HEIGHT_bura))
 caixas_img = pygame.image.load('Imagens/Caixa.jpg').convert_alpha()
 caixas_img = pygame.transform.scale(caixas_img, (WIDTH_caixa, HEIGHT_caixa))
+cone_img = pygame.image.load('Imagens/cone.png').convert_alpha()
+cone_img = pygame.transform.scale(cone_img, (WIDTH_cone, HEIGHT_cone))
 
 # Testando sprite - Carteiro
 class Carteiro (pygame.sprite.Sprite):
@@ -105,12 +109,28 @@ class Poste (pygame.sprite.Sprite):
             self.rect.x=700
         self.rect.x-=5
 
+#Criando classe de cone
+class Cone(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image=cone_img
+        self.image=pygame.transform.scale(self.image,(60,60))
+        self.rect=self.image.get_rect()
+        self.rect.center=(300,290)
+    def update(self):
+        if self.rect.topright[0]<0:
+            self.rect.x=800
+        self.rect.x-= 5
+
 todas_as_sprites = pygame.sprite.Group()
+colisoes_com_carteiro= pygame.sprite.Group()
+cone=Cone()
 poste=Poste()
 carteiro_andando=Carteiro()
+colisoes_com_carteiro.add(cone)
 todas_as_sprites.add(poste)
+todas_as_sprites.add(cone)
 todas_as_sprites.add(carteiro_andando)
-
 
 
 

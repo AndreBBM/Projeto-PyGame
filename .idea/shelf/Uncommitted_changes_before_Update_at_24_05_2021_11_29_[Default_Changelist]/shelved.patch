@@ -1,0 +1,124 @@
+Index: Jogo.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># Importando e iniciando pacotes\r\nimport pygame\r\nfrom pygame.constants import QUIT\r\n\r\npygame.init()\r\n\r\n# Criando a tela do jogo\r\n# Dimensões\r\naltura = 500\r\nlargura = 700\r\nWIDTH_cart= 50\r\nWIDTH_bura= 10\r\nHEIGHT_cart= 30\r\nHEIGHT_bura= 10\r\n\r\ntela = pygame.display.set_mode((largura,altura))\r\npygame.display.set_caption('Olha o Carteiro!')\r\n\r\n# Carregando imagens: (Só estruturando)\r\nbackground = pygame.image.load('').convert() # Não precisa de transparência aqui\r\ncarteiro_img = pygame.image.load('Imagens/MailmanFemale.png').convert_alpha()\r\ncarteiro_img= pygame.transform.scale(carteiro_img, (WIDTH_cart, HEIGHT_cart))\r\nburacos_img = pygame.image.load('Imagens/buraco.png').convert_alpha()\r\nburacos_img = pygame.transform.scale(buracos_img, (WIDTH_bura, HEIGHT_bura))\r\n\r\n# Iniciando a estrutura \r\nStart = True\r\n\r\n# Loop Principal!\r\nwhile Start:\r\n    tela.fill((176, 196, 222))\r\n    # Tratando evento\r\n    for event in pygame.event.get():\r\n        # Para sair do jogo\r\n        if event.type == QUIT:\r\n            Start = False\r\n    # Linha importante = Faz o jogo ficar sempre atualizando\r\n    pygame.display.update()\r\n\r\npygame.quit()\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Jogo.py b/Jogo.py
+--- a/Jogo.py	(revision 607a7950d71e87316901507ea4b3962786b5a71e)
++++ b/Jogo.py	(date 1621866514311)
+@@ -17,7 +17,7 @@
+ pygame.display.set_caption('Olha o Carteiro!')
+ 
+ # Carregando imagens: (Só estruturando)
+-background = pygame.image.load('').convert() # Não precisa de transparência aqui
++background = pygame.image.load('Imagens/8bitNY.jpg').convert() # Não precisa de transparência aqui
+ carteiro_img = pygame.image.load('Imagens/MailmanFemale.png').convert_alpha()
+ carteiro_img= pygame.transform.scale(carteiro_img, (WIDTH_cart, HEIGHT_cart))
+ buracos_img = pygame.image.load('Imagens/buraco.png').convert_alpha()
+Index: Images.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import pygame\r\n\r\ncarteiro = pygame.image.load('MailmanMale.png.png').convert()\r\ncarteira = pygame.image.load('MailmanFemale.png').convert()\r\ncidade = pygame.image.load('8bitNY.png').convert()\r\nburaco = pygame.image.load('buraco.png').convert()
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Images.py b/Images.py
+--- a/Images.py	(revision 607a7950d71e87316901507ea4b3962786b5a71e)
++++ b/Images.py	(date 1621866418085)
+@@ -1,6 +1,13 @@
+ import pygame
+ 
+-carteiro = pygame.image.load('MailmanMale.png.png').convert()
+-carteira = pygame.image.load('MailmanFemale.png').convert()
+-cidade = pygame.image.load('8bitNY.png').convert()
+-buraco = pygame.image.load('buraco.png').convert()
+\ No newline at end of file
++WIDTH = 480
++HEIGHT = 600
++window = pygame.display.set_mode((WIDTH, HEIGHT))
++pygame.display.set_caption('Navinha')
++
++carteiro = pygame.image.load('Imagens/MailmanFemale.png').convert()
++carteira = pygame.image.load('Imagens/MailmanMale.png').convert()
++cidade = pygame.image.load('Imagens/8bitNY.jpg').convert()
++buraco = pygame.image.load('Imagens/buraco.png').convert()
++
++
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"46fd3be3-3b38-4247-82cf-f18ee2046ce5\" name=\"Default Changelist\" comment=\"\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1skxolH4F5AkxPd0nbwpzwq2dA5\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File\" value=\"Python\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"46fd3be3-3b38-4247-82cf-f18ee2046ce5\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1621430565577</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1621430565577</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 607a7950d71e87316901507ea4b3962786b5a71e)
++++ b/.idea/workspace.xml	(date 1621866341953)
+@@ -1,7 +1,10 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="46fd3be3-3b38-4247-82cf-f18ee2046ce5" name="Default Changelist" comment="" />
++    <list default="true" id="46fd3be3-3b38-4247-82cf-f18ee2046ce5" name="Default Changelist" comment="Imagens provisórias">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Images.py" beforeDir="false" afterPath="$PROJECT_DIR$/Images.py" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -18,6 +21,9 @@
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="ProjectId" id="1skxolH4F5AkxPd0nbwpzwq2dA5" />
++  <component name="ProjectLevelVcsManager">
++    <ConfirmationsSetting value="2" id="Add" />
++  </component>
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+@@ -27,6 +33,34 @@
+     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
+     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
++  </component>
++  <component name="RunManager">
++    <configuration name="Images" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++      <module name="Projeto-PyGame" />
++      <option name="INTERPRETER_OPTIONS" value="" />
++      <option name="PARENT_ENVS" value="true" />
++      <envs>
++        <env name="PYTHONUNBUFFERED" value="1" />
++      </envs>
++      <option name="SDK_HOME" value="" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
++      <option name="IS_MODULE_SDK" value="true" />
++      <option name="ADD_CONTENT_ROOTS" value="true" />
++      <option name="ADD_SOURCE_ROOTS" value="true" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Images.py" />
++      <option name="PARAMETERS" value="" />
++      <option name="SHOW_COMMAND_LINE" value="false" />
++      <option name="EMULATE_TERMINAL" value="false" />
++      <option name="MODULE_MODE" value="false" />
++      <option name="REDIRECT_INPUT" value="false" />
++      <option name="INPUT_FILE" value="" />
++      <method v="2" />
++    </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="Python.Images" />
++      </list>
++    </recent_temporary>
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+@@ -39,4 +73,7 @@
+     </task>
+     <servers />
+   </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="oldMeFiltersMigrated" value="true" />
++  </component>
+ </project>
+\ No newline at end of file

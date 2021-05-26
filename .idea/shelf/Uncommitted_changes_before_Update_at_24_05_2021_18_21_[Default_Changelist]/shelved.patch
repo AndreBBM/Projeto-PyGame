@@ -1,0 +1,284 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"46fd3be3-3b38-4247-82cf-f18ee2046ce5\" name=\"Default Changelist\" comment=\"\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1skxolH4F5AkxPd0nbwpzwq2dA5\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File\" value=\"Python\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"46fd3be3-3b38-4247-82cf-f18ee2046ce5\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1621430565577</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1621430565577</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 301295b516589d692505606499cd460218134c21)
++++ b/.idea/workspace.xml	(date 1621891194490)
+@@ -1,7 +1,11 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="46fd3be3-3b38-4247-82cf-f18ee2046ce5" name="Default Changelist" comment="" />
++    <list default="true" id="46fd3be3-3b38-4247-82cf-f18ee2046ce5" name="Default Changelist" comment="Imagens provisórias">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Images.py" beforeDir="false" afterPath="$PROJECT_DIR$/Images.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Jogo.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jogo.py" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -18,6 +22,9 @@
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="ProjectId" id="1skxolH4F5AkxPd0nbwpzwq2dA5" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
++    <ConfirmationsSetting value="2" id="Add" />
++  </component>
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+@@ -27,6 +34,56 @@
+     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
+     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
++  </component>
++  <component name="RunManager" selected="Python.Jogo">
++    <configuration name="Images" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++      <module name="Projeto-PyGame" />
++      <option name="INTERPRETER_OPTIONS" value="" />
++      <option name="PARENT_ENVS" value="true" />
++      <envs>
++        <env name="PYTHONUNBUFFERED" value="1" />
++      </envs>
++      <option name="SDK_HOME" value="" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
++      <option name="IS_MODULE_SDK" value="true" />
++      <option name="ADD_CONTENT_ROOTS" value="true" />
++      <option name="ADD_SOURCE_ROOTS" value="true" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Images.py" />
++      <option name="PARAMETERS" value="" />
++      <option name="SHOW_COMMAND_LINE" value="false" />
++      <option name="EMULATE_TERMINAL" value="false" />
++      <option name="MODULE_MODE" value="false" />
++      <option name="REDIRECT_INPUT" value="false" />
++      <option name="INPUT_FILE" value="" />
++      <method v="2" />
++    </configuration>
++    <configuration name="Jogo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++      <module name="Projeto-PyGame" />
++      <option name="INTERPRETER_OPTIONS" value="" />
++      <option name="PARENT_ENVS" value="true" />
++      <envs>
++        <env name="PYTHONUNBUFFERED" value="1" />
++      </envs>
++      <option name="SDK_HOME" value="" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
++      <option name="IS_MODULE_SDK" value="true" />
++      <option name="ADD_CONTENT_ROOTS" value="true" />
++      <option name="ADD_SOURCE_ROOTS" value="true" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Jogo.py" />
++      <option name="PARAMETERS" value="" />
++      <option name="SHOW_COMMAND_LINE" value="false" />
++      <option name="EMULATE_TERMINAL" value="false" />
++      <option name="MODULE_MODE" value="false" />
++      <option name="REDIRECT_INPUT" value="false" />
++      <option name="INPUT_FILE" value="" />
++      <method v="2" />
++    </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="Python.Jogo" />
++        <item itemvalue="Python.Images" />
++      </list>
++    </recent_temporary>
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+@@ -37,6 +94,37 @@
+       <option name="presentableId" value="Default" />
+       <updated>1621430565577</updated>
+     </task>
++    <task id="LOCAL-00001" summary="Imagens provisórias">
++      <created>1621866474766</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1621866474766</updated>
++    </task>
++    <task id="LOCAL-00002" summary="Imagens provisórias">
++      <created>1621867478207</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1621867478207</updated>
++    </task>
++    <option name="localTasksCounter" value="3" />
+     <servers />
+   </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++    <option name="oldMeFiltersMigrated" value="true" />
++  </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="Imagens provisórias" />
++    <option name="LAST_COMMIT_MESSAGE" value="Imagens provisórias" />
++  </component>
+ </project>
+\ No newline at end of file
+Index: Jogo.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># Importando e iniciando pacotes\r\nimport pygame\r\nfrom pygame.constants import QUIT\r\n\r\npygame.init()\r\n\r\n# Criando a tela do jogo\r\n# Dimensões\r\naltura = 500\r\nlargura = 700\r\nWIDTH_cart= 50\r\nWIDTH_bura= 10\r\nHEIGHT_cart= 30\r\nHEIGHT_bura= 10\r\n\r\nburaco_x=\"?\"\r\nburaco_y=\"?\"\r\ncarteiro_y=\"?\"\r\ncarteiro_x=\"?\"\r\nburaco_speed=\"?\"\r\ncarteiro_speedx=\"?\"\r\ncarteiro_speedy=\"?\"\r\n\r\ntela = pygame.display.set_mode((largura,altura))\r\npygame.display.set_caption('Olha o Carteiro!')\r\n\r\n# Carregando imagens: (Só estruturando)\r\nbackground = pygame.image.load('Imagens/8bitNY.jpg').convert() # Não precisa de transparência aqui\r\ncarteiro_img = pygame.image.load('Imagens/MailmanFemale.png').convert_alpha()\r\ncarteiro_img= pygame.transform.scale(carteiro_img, (WIDTH_cart, HEIGHT_cart))\r\nburacos_img = pygame.image.load('Imagens/buraco.png').convert_alpha()\r\nburacos_img = pygame.transform.scale(buracos_img, (WIDTH_bura, HEIGHT_bura))\r\n\r\n# Iniciando a estrutura \r\nStart = True\r\n\r\n# Loop Principal!\r\nwhile Start:\r\n    \r\n    # Tratando evento\r\n    for event in pygame.event.get():\r\n        # Para sair do jogo\r\n        if event.type == QUIT:\r\n            Start=False\r\n        \r\n    buraco_x+=buraco_speed\r\n\r\n    # Pra não sair da sala\r\n    if buraco_x > \"?\": #Tamanho máximo da imagem\r\n       buraco_x=\" \" #Tamanho inicial\r\n\r\n    tela.fill((176, 196, 222))\r\n    tela.blit(background, (0, 0))\r\n    pygame.display.update()  # Mostra o novo frame para o jogador\r\n    #Linha importante= Faz o jogo ficar sempre atualizando\r\n    pygame.display.update()\r\n\r\npygame.quit()\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Jogo.py b/Jogo.py
+--- a/Jogo.py	(revision 301295b516589d692505606499cd460218134c21)
++++ b/Jogo.py	(date 1621876391735)
+@@ -8,53 +8,70 @@
+ # Dimensões
+ altura = 500
+ largura = 700
+-WIDTH_cart= 50
+-WIDTH_bura= 10
+-HEIGHT_cart= 30
+-HEIGHT_bura= 10
++WIDTH_cart = 50
++WIDTH_bura = 10
++HEIGHT_cart = 30
++HEIGHT_bura = 10
+ 
+-buraco_x="?"
+-buraco_y="?"
+-carteiro_y="?"
+-carteiro_x="?"
+-buraco_speed="?"
+-carteiro_speedx="?"
+-carteiro_speedy="?"
++buraco_x = "?"
++buraco_y = "?"
++carteiro_y = "?"
++carteiro_x = "?"
++buraco_speed = "?"
++carteiro_speedx = "?"
++carteiro_speedy = "?"
+ 
+-tela = pygame.display.set_mode((largura,altura))
++tela = pygame.display.set_mode((largura, altura))
+ pygame.display.set_caption('Olha o Carteiro!')
+ 
+ # Carregando imagens: (Só estruturando)
+-background = pygame.image.load('Imagens/8bitNY.jpg').convert() # Não precisa de transparência aqui
++background = pygame.image.load('Imagens/8bitNY.jpg').convert()  # Não precisa de transparência aqui
++background = pygame.transform.scale(background, (700, 500))
++
+ carteiro_img = pygame.image.load('Imagens/MailmanFemale.png').convert_alpha()
+-carteiro_img= pygame.transform.scale(carteiro_img, (WIDTH_cart, HEIGHT_cart))
++carteiro_img = pygame.transform.scale(carteiro_img, (WIDTH_cart, HEIGHT_cart))
+ buracos_img = pygame.image.load('Imagens/buraco.png').convert_alpha()
+ buracos_img = pygame.transform.scale(buracos_img, (WIDTH_bura, HEIGHT_bura))
+ 
+-# Iniciando a estrutura 
++bg_e = 0
++bg_d = background.get_width()
++
++
++def redrawwindow():
++    tela.blit(background, (bg_e, 0))
++    tela.blit(background, (bg_d, 0))
++    pygame.display.update()
++
++
++# Iniciando a estrutura
+ Start = True
+ 
++clock = pygame.time.Clock()
+ # Loop Principal!
+ while Start:
+-    
++    redrawwindow()
++    clock.tick(30)
+     # Tratando evento
+     for event in pygame.event.get():
+         # Para sair do jogo
+         if event.type == QUIT:
+-            Start=False
+-        
+-    buraco_x+=buraco_speed
++            Start = False
++
++    bg_e -= 2.4
++    bg_d -= 2.4
++
++    if bg_e < background.get_width() * -1:
++        bg_e = background.get_width()
++    if bg_d < background.get_width() * -1:
++        bg_d = background.get_width()
++
++    buraco_x += buraco_speed
+ 
+     # Pra não sair da sala
+-    if buraco_x > "?": #Tamanho máximo da imagem
+-       buraco_x=" " #Tamanho inicial
++    if buraco_x > "?":  # Tamanho máximo da imagem
++        buraco_x = " "  # Tamanho inicial
+ 
+     tela.fill((176, 196, 222))
+-    tela.blit(background, (0, 0))
+-    pygame.display.update()  # Mostra o novo frame para o jogador
+-    #Linha importante= Faz o jogo ficar sempre atualizando
+-    pygame.display.update()
++
+ 
+ pygame.quit()
+-
+-
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"VcsDirectoryMappings\">\r\n    <mapping directory=\"$PROJECT_DIR$\" vcs=\"Git\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+--- a/.idea/vcs.xml	(revision 301295b516589d692505606499cd460218134c21)
++++ b/.idea/vcs.xml	(date 1621891118541)
+@@ -2,5 +2,6 @@
+ <project version="4">
+   <component name="VcsDirectoryMappings">
+     <mapping directory="$PROJECT_DIR$" vcs="Git" />
++    <mapping directory="$PROJECT_DIR$/Projeto-PyGame" vcs="Git" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: Images.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import pygame\r\n\r\ncarteiro = pygame.image.load('MailmanMale.png.png').convert()\r\ncarteira = pygame.image.load('MailmanFemale.png').convert()\r\ncidade = pygame.image.load('8bitNY.png').convert()\r\nburaco = pygame.image.load('buraco.png').convert()
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Images.py b/Images.py
+--- a/Images.py	(revision 301295b516589d692505606499cd460218134c21)
++++ b/Images.py	(date 1621867392780)
+@@ -1,6 +1,13 @@
+ import pygame
+ 
+-carteiro = pygame.image.load('MailmanMale.png.png').convert()
+-carteira = pygame.image.load('MailmanFemale.png').convert()
+-cidade = pygame.image.load('8bitNY.png').convert()
+-buraco = pygame.image.load('buraco.png').convert()
+\ No newline at end of file
++WIDTH = 480
++HEIGHT = 600
++window = pygame.display.set_mode((WIDTH, HEIGHT))
++pygame.display.set_caption('Navinha')
++
++carteiro = pygame.image.load('Imagens/MailmanFemale.png').convert()
++carteira = pygame.image.load('Imagens/MailmanMale.png').convert()
++cidade = pygame.image.load('Imagens/8bitNY.jpg').convert()
++buraco = pygame.image.load('Imagens/buraco.png').convert()
++
++

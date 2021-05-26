@@ -5,6 +5,7 @@ from pygame.constants import *
 from random import *
 from Classes import *
 import Setup
+import random
 config = Setup.LoadConfig()
 pygame.init()
 
@@ -141,6 +142,8 @@ grupo_obstaculo_cone.add(cone)
 grupo_colisao_poste=pygame.sprite.Group()
 grupo_colisao_poste.add(quadrado)
 
+obstaculo=None
+
 # São criados 2 fundos, um incial e outro logo após o primeiro, que aparece quando o primeiro sai da tela
 bg_e = 0
 bg_d = background.get_width()
@@ -188,6 +191,10 @@ while Start:
     # Para o carteiro não sair da sala
     if carteiro_x > 700: # Tamanho máximo da imagem
        carteiro_x = 0    # Tamanho inicial
+    
+    if obstaculo==None:
+        opc
+
 
     colisoes=pygame.sprite.spritecollide(carteiro_andando,grupo_obstaculo_cone,False,pygame.sprite.collide_mask)
     colisao_poste=pygame.sprite.spritecollide(carteiro_andando,grupo_colisao_poste,False,pygame.sprite.collide_mask)

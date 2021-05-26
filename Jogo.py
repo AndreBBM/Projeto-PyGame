@@ -129,6 +129,7 @@ todas_as_sprites.add(carteiro_andando)
 
 # Grupo colisão com a carteira
 grupo_obstaculo = pygame.sprite.Group()
+grupo_colisao_poste=pygame.sprite.Group()
 
 obstaculo = None
 
@@ -141,12 +142,11 @@ Start = True
 
 # Rodando o cenário
 clock = pygame.time.Clock()
-FramesPerSecond = 100
 velocidade_tela = 2.4
 
 # Loop Principal!
 while Start:
-    clock.tick(FramesPerSecond)
+    clock.tick(config['fps'])
     # Tratando eventos
     for event in pygame.event.get():
         # Para sair do jogo
@@ -175,12 +175,20 @@ while Start:
         opcao = random.randint(1, 2)
         if opcao == 1:
             obstaculo = Cone(cone_img)
+            grupo_obstaculo.add(obstaculo)
+            
         if opcao == 2:
             obstaculo = Poste(poste_img)
+            obstaculo_invisivel=Quadrado(poste_img)
+            grupo_colisao_poste.add(obstaculo_invisivel)
         todas_as_sprites.add(obstaculo)
-        grupo_obstaculo.add(obstaculo)
+        todas_as_sprites.add(obstaculo_invisivel)
+            
+
+        
 
     colisoes = pygame.sprite.spritecollide(carteiro_andando, grupo_obstaculo, False, pygame.sprite.collide_mask)
+    colisao_poste=pygame.sprite.spritecollide(carteiro_andando,grupo_colisao_poste,False,pygame.sprite.collide_mask)
 
     tela.fill((176, 196, 222))
     # Linhas importantes = Fazem o jogo ficar sempre se atualizando
@@ -189,11 +197,12 @@ while Start:
     todas_as_sprites.draw(tela)
 
     # Caso colida com algum dos obstáculos, o fundo para de andar
-    if colisoes:
+    if colisoes or colisao_poste:
         velocidade_tela = 0
         pass
     else:
         todas_as_sprites.update()
+        grupo_colisao_poste.update()
 
     pygame.display.update()
 

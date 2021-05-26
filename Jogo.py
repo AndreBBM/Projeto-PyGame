@@ -88,28 +88,11 @@ class Carteiro(pygame.sprite.Sprite):
         self.image = self.imagens[int(self.index_lista)]
 
 
-class Quadrado(pygame.sprite.Sprite):
-    def __init__(self, poste):
-        pygame.sprite.Sprite.__init__(self)
-        self.image = caixas_img
-        self.image = pygame.transform.scale(self.image, (60, 60))
-        self.rect = self.image.get_rect()
-        # Criando máscara da sprite
-        self.mask = pygame.mask.from_surface(self.image)
-        self.rect.center = (300, 150)
-        self.referencia_poste = poste
-
-    def update(self):
-        if self.rect.topright[0] < 0:
-            self.rect.centerx = self.referencia_poste.rect.centerx
-        self.rect.x -= 4
-
-
 todas_as_sprites = pygame.sprite.Group()
 colisoes_com_carteiro = pygame.sprite.Group()
 carteiro_andando = Carteiro()
 poste = Poste(poste_img)
-quadrado = Quadrado(poste)
+quadrado = Quadrado(poste,caixas_img)
 '''
 cone = Cone(cone_img)
 colisoes_com_carteiro.add(cone)
@@ -128,6 +111,7 @@ grupo_obstaculo = pygame.sprite.Group()
 grupo_colisao_poste=pygame.sprite.Group()
 
 obstaculo = None
+obstaculo_invisivel=None
 
 # São criados 2 fundos, um incial e outro logo após o primeiro, que aparece quando o primeiro sai da tela
 bg_e = 0
@@ -175,12 +159,10 @@ while Start:
             
         if opcao == 2:
             obstaculo = Poste(poste_img)
-            obstaculo_invisivel=Quadrado(poste_img)
+            obstaculo_invisivel=Quadrado(obstaculo,caixas_img)
             grupo_colisao_poste.add(obstaculo_invisivel)
+            todas_as_sprites.add(obstaculo_invisivel)
         todas_as_sprites.add(obstaculo)
-        todas_as_sprites.add(obstaculo_invisivel)
-            
-
         
 
     colisoes = pygame.sprite.spritecollide(carteiro_andando, grupo_obstaculo, False, pygame.sprite.collide_mask)

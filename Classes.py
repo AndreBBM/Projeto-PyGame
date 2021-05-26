@@ -48,3 +48,19 @@ class Cone(pygame.sprite.Sprite):
         if self.rect.topright[0] < 0:
             self.rect.x = 800
         self.rect.x -= 4
+
+class Quadrado(pygame.sprite.Sprite):
+    def __init__(self, poste, caixas_img):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = caixas_img
+        self.image = pygame.transform.scale(self.image, (60, 60))
+        self.rect = self.image.get_rect()
+        # Criando máscara da sprite
+        self.mask = pygame.mask.from_surface(self.image)
+        self.rect.center = (300, 270)
+        self.referencia_poste = poste
+
+    def update(self):
+        if self.rect.topright[0] < 0:
+            self.rect.centerx = self.referencia_poste.rect.centerx
+        self.rect.x -= 4

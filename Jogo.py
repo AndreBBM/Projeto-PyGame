@@ -5,11 +5,9 @@ from random import *
 from Classes import *
 from constantes import *
 
-import Setup
 import pygame
 import random
 
-config = Setup.LoadConfig()
 pygame.init()
 
 # Criando a tela do jogo

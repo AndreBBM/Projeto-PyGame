@@ -15,11 +15,11 @@ tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Olha o Carteiro!')
 
 
-#Exibir mensagens:
-def mensagem(msg,tamanho,cor):
-    fonte=pygame.font.SysFont("comicsansms",tamanho,True,False) #Penultimo:Negrito Último:Italico
-    mensagem= f"{msg}" #F--F string--- Mesma coisa que .format
-    texto_formatado=fonte.render(mensagem,True, cor) #Textocerrilhado- Segundo
+# Exibir mensagens:
+def mensagem(msg, tamanho, cor):
+    fonte = pygame.font.SysFont("comicsansms", tamanho, True, False)  # Penultimo:Negrito Último:Italico
+    mensagem = f"{msg}"  # F--F string--- Mesma coisa que .format
+    texto_formatado = fonte.render(mensagem, True, cor)  # Textocerrilhado- Segundo
     return texto_formatado
 
 
@@ -58,16 +58,19 @@ clock = pygame.time.Clock()
 FramePerSecond = 100
 velocidade_tela = 2.4
 
-#Reiniciar
+
+# Reiniciar
 def reiniciar_jogo():
-    velocidade_tela=2.4
-    colisoes=False
+    velocidade_tela = 2.4
+    colisoes = False
 
 
 # Loop Principal!
 while Start:
     clock.tick(FramePerSecond)
     # Tratando eventos
+    colisoes = pygame.sprite.spritecollide(carteiro_andando, grupo_obstaculo, False, pygame.sprite.collide_mask)
+
     for event in pygame.event.get():
         # Para sair do jogo
         if event.type == QUIT:
@@ -79,9 +82,9 @@ while Start:
                     pass
                 else:
                     carteiro_andando.pula()
-            if event.key==K_SPACE and colisoes:
+            if event.key == K_SPACE and len(colisoes) > 0:
                 reiniciar_jogo()
-
+    print(grupo_obstaculo)
     # Velocidade com que o fundo se mexe
     bg_e -= velocidade_tela
     bg_d -= velocidade_tela
@@ -97,17 +100,19 @@ while Start:
         opcao = random.randint(1, 2)
         if opcao == 1:
             obstaculo = Cone(cone_img)
-            
-            
+
         if opcao == 2:
-            referencia= Poste(poste_img)
-            obstaculo = Quadrado(poste_img,referencia)
+            referencia = Poste(poste_img)
+            obstaculo = Quadrado(poste_img, referencia)
             todas_as_sprites.add(referencia)
 
         todas_as_sprites.add(obstaculo)
-        grupo_obstaculo.add(obstaculo)        
+        grupo_obstaculo.add(obstaculo)
 
-    colisoes = pygame.sprite.spritecollide(carteiro_andando, grupo_obstaculo, False, pygame.sprite.collide_mask)
+    #Deleta os obstáculos que já estão fora da tela
+    for objectt in grupo_obstaculo:
+        if objectt.rect.x < -100:
+            grupo_obstaculo.remove(objectt)
 
     # Linhas importantes = Fazem o jogo ficar sempre se atualizando
     tela.blit(background, (bg_e, -270))
@@ -117,10 +122,10 @@ while Start:
     # Caso colida com algum dos obstáculos, o fundo para de andar
     if colisoes:
         velocidade_tela = 0
-        cabou= mensagem("ENCOMENDAS NÃO ENTREGUES :(",30,(255,0,255))
-        tela.blit(cabou,(300,200))
-        restart=mensagem("Pressione espaço para reiniciar!",25,(255,0,255))
-        tela.blit(restart,(350,280))
+        cabou = mensagem("ENCOMENDAS NÃO ENTREGUES :(", 30, (255, 0, 255))
+        tela.blit(cabou, (300, 200))
+        restart = mensagem("Pressione espaço para reiniciar!", 25, (255, 0, 255))
+        tela.blit(restart, (350, 280))
 
     else:
         todas_as_sprites.update()

@@ -125,7 +125,7 @@ todas_as_sprites.add(carteiro_andando)
 
 # Grupo colisão com a carteira
 grupo_obstaculo = pygame.sprite.Group()
-grupo_colisao_poste=pygame.sprite.Group()
+grupo_colisao_poste = pygame.sprite.Group()
 
 obstaculo = None
 
@@ -172,19 +172,16 @@ while Start:
         if opcao == 1:
             obstaculo = Cone(cone_img)
             grupo_obstaculo.add(obstaculo)
-            
+
         if opcao == 2:
             obstaculo = Poste(poste_img)
-            obstaculo_invisivel=Quadrado(poste_img)
+            obstaculo_invisivel = Quadrado(poste_img)
             grupo_colisao_poste.add(obstaculo_invisivel)
         todas_as_sprites.add(obstaculo)
-        todas_as_sprites.add(obstaculo_invisivel)
-            
-
-        
 
     colisoes = pygame.sprite.spritecollide(carteiro_andando, grupo_obstaculo, False, pygame.sprite.collide_mask)
-    colisao_poste=pygame.sprite.spritecollide(carteiro_andando,grupo_colisao_poste,False,pygame.sprite.collide_mask)
+    colisao_poste = pygame.sprite.spritecollide(carteiro_andando, grupo_colisao_poste, False,
+                                                pygame.sprite.collide_mask)
 
     # Linhas importantes = Fazem o jogo ficar sempre se atualizando
     tela.blit(background, (bg_e, -270))

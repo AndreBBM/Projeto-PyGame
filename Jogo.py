@@ -14,6 +14,15 @@ pygame.init()
 tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Olha o Carteiro!')
 
+
+#Exibir mensagens:
+def mensagem(msg,tamanho,cor):
+    fonte=pygame.font.SysFont("comicsansms",tamanho,True,False) #Penultimo:Negrito Último:Italico
+    mensagem= f"{msg}" #F--F string--- Mesma coisa que .format
+    texto_formatado=fonte.render(mensagem,True, cor) #Textocerrilhado- Segundo
+    return texto_formatado
+
+
 # Carregando imagens:
 background = pygame.image.load('Imagens/8bitNY.jpg').convert()  # Não precisa de transparência aqui
 background = pygame.transform.scale(background, (1000, 800))
@@ -49,6 +58,11 @@ clock = pygame.time.Clock()
 FramePerSecond = 100
 velocidade_tela = 2.4
 
+#Reiniciar
+def reiniciar_jogo():
+    velocidade_tela=2.4
+    colisoes=False
+
 
 # Loop Principal!
 while Start:
@@ -65,6 +79,8 @@ while Start:
                     pass
                 else:
                     carteiro_andando.pula()
+            if event.key==K_SPACE and colisoes:
+                reiniciar_jogo()
 
     # Velocidade com que o fundo se mexe
     bg_e -= velocidade_tela
@@ -87,7 +103,7 @@ while Start:
             referencia= Poste(poste_img)
             obstaculo = Quadrado(poste_img,referencia)
             todas_as_sprites.add(referencia)
-            
+
         todas_as_sprites.add(obstaculo)
         grupo_obstaculo.add(obstaculo)        
 
@@ -101,7 +117,11 @@ while Start:
     # Caso colida com algum dos obstáculos, o fundo para de andar
     if colisoes:
         velocidade_tela = 0
-        pass
+        cabou= mensagem("ENCOMENDAS NÃO ENTREGUES :(",30,(255,0,255))
+        tela.blit(cabou,(300,200))
+        restart=mensagem("Pressione espaço para reiniciar!",25,(255,0,255))
+        tela.blit(restart,(350,280))
+
     else:
         todas_as_sprites.update()
         grupo_obstaculo.update()

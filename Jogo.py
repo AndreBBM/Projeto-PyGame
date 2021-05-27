@@ -63,6 +63,10 @@ velocidade_tela = 2.4
 def reiniciar_jogo():
     velocidade_tela = 2.4
     colisoes = False
+    obstaculo = None
+    todas_as_sprites.empty()
+    todas_as_sprites.add(carteiro_andando)
+    grupo_obstaculo.empty()
 
 
 # Loop Principal!
@@ -84,7 +88,8 @@ while Start:
                     carteiro_andando.pula()
             if event.key == K_SPACE and len(colisoes) > 0:
                 reiniciar_jogo()
-    print(grupo_obstaculo)
+                obstaculo = None
+
     # Velocidade com que o fundo se mexe
     bg_e -= velocidade_tela
     bg_d -= velocidade_tela
@@ -95,6 +100,8 @@ while Start:
 
     if bg_d < background.get_width() * -1:
         bg_d = background.get_width()
+
+    print(len(colisoes))
 
     if obstaculo == None or obstaculo.rect.x < (largura - 400):
         opcao = random.randint(1, 2)
@@ -109,18 +116,17 @@ while Start:
         todas_as_sprites.add(obstaculo)
         grupo_obstaculo.add(obstaculo)
 
-    #Deleta os obstáculos que já estão fora da tela
+    # Deleta os obstáculos que já estão fora da tela
     for objectt in grupo_obstaculo:
         if objectt.rect.x < -100:
             grupo_obstaculo.remove(objectt)
+            todas_as_sprites.remove(objectt)
 
     # Linhas importantes = Fazem o jogo ficar sempre se atualizando
     tela.blit(background, (bg_e, -270))
     tela.blit(background, (bg_d, -270))
-    todas_as_sprites.draw(tela)
 
-    # Caso colida com algum dos obstáculos, o fundo para de andar
-    if colisoes:
+    if len(colisoes) > 0:
         velocidade_tela = 0
         cabou = mensagem("ENCOMENDAS NÃO ENTREGUES :(", 30, (255, 0, 255))
         tela.blit(cabou, (300, 200))
@@ -130,6 +136,10 @@ while Start:
     else:
         todas_as_sprites.update()
         grupo_obstaculo.update()
+
+    todas_as_sprites.draw(tela)
+
+    # Caso colida com algum dos obstáculos, o fundo para de andar
 
     pygame.display.update()
 

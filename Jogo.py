@@ -7,6 +7,7 @@ from constantes import *
 
 import pygame
 import random
+import os
 
 pygame.init()
 
@@ -17,7 +18,7 @@ pygame.display.set_caption('Olha o Carteiro!')
 
 # Exibir mensagens:
 def mensagem(msg, tamanho, cor):
-    fonte = pygame.font.SysFont("comicsansms", tamanho, True, False)  # Penultimo:Negrito Último:Italico
+    fonte = pygame.font.Font('font/PressStart2P.ttf', tamanho)
     mensagem = f"{msg}"  # F--F string--- Mesma coisa que .format
     texto_formatado = fonte.render(mensagem, True, cor)  # Textocerrilhado- Segundo
     return texto_formatado
@@ -61,12 +62,15 @@ velocidade_tela = 2.4
 
 # Reiniciar
 def reiniciar_jogo():
-    velocidade_tela = 2.4
-    colisoes = False
-    obstaculo = None
     todas_as_sprites.empty()
     todas_as_sprites.add(carteiro_andando)
     grupo_obstaculo.empty()
+    global velocidade_tela
+    velocidade_tela = 2.4
+    global colisoes
+    colisoes.clear()
+    global obstaculo
+    obstaculo = None
 
 
 # Loop Principal!
@@ -88,7 +92,6 @@ while Start:
                     carteiro_andando.pula()
             if event.key == K_SPACE and len(colisoes) > 0:
                 reiniciar_jogo()
-                obstaculo = None
 
     # Velocidade com que o fundo se mexe
     bg_e -= velocidade_tela
@@ -100,8 +103,6 @@ while Start:
 
     if bg_d < background.get_width() * -1:
         bg_d = background.get_width()
-
-    print(len(colisoes))
 
     if obstaculo == None or obstaculo.rect.x < (largura - 400):
         opcao = random.randint(1, 2)
@@ -129,9 +130,9 @@ while Start:
     if len(colisoes) > 0:
         velocidade_tela = 0
         cabou = mensagem("ENCOMENDAS NÃO ENTREGUES :(", 30, (255, 255, 0))
-        tela.blit(cabou, (290, 100))
+        tela.blit(cabou, (70, 100))
         restart = mensagem("Pressione espaço para reiniciar!", 25, (255, 255, 0))
-        tela.blit(restart, (350, 180))
+        tela.blit(restart, (70, 180))
 
     else:
         todas_as_sprites.update()

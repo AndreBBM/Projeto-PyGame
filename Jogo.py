@@ -128,10 +128,10 @@ while Start:
 
     if len(colisoes) > 0:
         velocidade_tela = 0
-        cabou = mensagem("ENCOMENDAS NÃO ENTREGUES :(", 30, (255, 0, 255))
-        tela.blit(cabou, (300, 200))
-        restart = mensagem("Pressione espaço para reiniciar!", 25, (255, 0, 255))
-        tela.blit(restart, (350, 280))
+        cabou = mensagem("ENCOMENDAS NÃO ENTREGUES :(", 30, (255, 255, 0))
+        tela.blit(cabou, (290, 100))
+        restart = mensagem("Pressione espaço para reiniciar!", 25, (255, 255, 0))
+        tela.blit(restart, (350, 180))
 
     else:
         todas_as_sprites.update()

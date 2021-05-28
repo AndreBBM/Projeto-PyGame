@@ -1,10 +1,21 @@
+# Importando e iniciando pacotes
 import pygame
+import os
 from constantes import *
+pygame.mixer.init()
+
+# Para o efeito sonoro do pulo
+diretorio_principal = os.path.dirname(__file__)
+diretorio_sons = os.path.join(diretorio_principal, 'som')
+som_do_pulo = pygame.mixer.Sound('Som/mb_jump.wav')
 
 # Classe do carteiro
 class Carteiro(pygame.sprite.Sprite):
     def __init__(self, carteiro_sheet):
         pygame.sprite.Sprite.__init__(self)
+        # Colocando o som do pulo e aumentando o volume do som
+        self.som_do_pulo = pygame.mixer.Sound(os.path.join(diretorio_sons, 'mb_jump.wav'))
+        self.som_do_pulo.set_volume(0.9)
         # Faces da carteira e dimensionando escala
         self.img1 = carteiro_sheet.subsurface((0, 0), (235, 336))
         self.img1 = pygame.transform.scale(self.img1, (235 - 170, 336 - 250))
@@ -25,6 +36,7 @@ class Carteiro(pygame.sprite.Sprite):
 
     def pula(self):
         self.pular = True
+        self.som_do_pulo.play()
 
     def update(self):
         if self.pular == True:
@@ -63,7 +75,7 @@ class Poste(pygame.sprite.Sprite):
         self.image = poste_img
         self.image = pygame.transform.scale(self.image, (100, 200))
         self.rect = self.image.get_rect()
-        # mascara de colisão
+        # Máscara de colisão
         self.mask = pygame.mask.from_surface(self.image)
         self.rect.x = largura
         self.rect.y = (chao-self.rect.height)
@@ -80,7 +92,7 @@ class Cone(pygame.sprite.Sprite):
         self.image = cone_img
         self.image = pygame.transform.scale(self.image, (60, 60))
         self.rect = self.image.get_rect()
-        # Criando mascara da sprite
+        # Criando máscara da sprite
         self.mask = pygame.mask.from_surface(self.image)
         self.rect.x = largura
         self.rect.y = (chao-self.rect.height)
@@ -95,12 +107,7 @@ class Quadrado(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.image = poste_img
         self.image = poste_img.subsurface((0, 0), (100, 60))
-        #self.image = pygame.transform.scale(self.image, (60, 60))
         self.rect = self.image.get_rect()
-        # Criando máscara da sprite
-        #self.mask = pygame.mask.from_surface(self.image)
-        #self.rect.x = largura+20
-        #self.rect.y = chao-self.rect.height-130
         self.rect.center = (300,280)
         self.referencia_poste = poste
         self.rect.centerx = self.referencia_poste.rect.centerx

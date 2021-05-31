@@ -4,17 +4,15 @@ from pygame.constants import *
 from random import *
 from Classes import *
 from constantes import *
-
 import pygame
 import random
 import os
-
 pygame.init()
+pygame.mixer.init()
 
 # Criando a tela do jogo
 tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Olha o Carteiro!')
-
 
 # Exibir mensagens:
 def mensagem(msg, tamanho, cor):
@@ -22,7 +20,6 @@ def mensagem(msg, tamanho, cor):
     mensagem = f"{msg}"  # F--F string--- Mesma coisa que .format
     texto_formatado = fonte.render(mensagem, True, cor)  # Textocerrilhado- Segundo
     return texto_formatado
-
 
 # Carregando imagens:
 background = pygame.image.load('Imagens/8bitNY.jpg').convert()  # Não precisa de transparência aqui
@@ -36,6 +33,10 @@ caixas_img = pygame.image.load('Imagens/Caixa.png').convert_alpha()
 caixas_img = pygame.transform.scale(caixas_img, (WIDTH_caixa, HEIGHT_caixa))
 cone_img = pygame.image.load('Imagens/cone.png').convert_alpha()
 cone_img = pygame.transform.scale(cone_img, (WIDTH_cone, HEIGHT_cone))
+
+# Carregando sons:
+som_do_pulo = pygame.mixer.Sound('Som/mb_jump.wav')
+
 
 todas_as_sprites = pygame.sprite.Group()
 carteiro_andando = Carteiro(carteiro_sheet)
@@ -59,7 +60,6 @@ clock = pygame.time.Clock()
 FramePerSecond = 100
 velocidade_tela = 2.4
 
-
 # Reiniciar
 def reiniciar_jogo():
     todas_as_sprites.empty()
@@ -72,13 +72,11 @@ def reiniciar_jogo():
     global obstaculo
     obstaculo = None
 
-
 # Loop Principal!
 while Start:
     clock.tick(FramePerSecond)
-    # Tratando eventos
     colisoes = pygame.sprite.spritecollide(carteiro_andando, grupo_obstaculo, False, pygame.sprite.collide_mask)
-
+    # Tratando eventos
     for event in pygame.event.get():
         # Para sair do jogo
         if event.type == QUIT:

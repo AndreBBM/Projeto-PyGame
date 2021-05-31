@@ -1,7 +1,7 @@
 # Importando e iniciando pacotes
 import pygame
 import os
-from constantes import *
+from Constantes import *
 pygame.mixer.init()
 
 # Para o efeito sonoro do pulo
@@ -102,7 +102,7 @@ class Cone(pygame.sprite.Sprite):
             self.kill()
         self.rect.x -= 2
 
-class Quadrado(pygame.sprite.Sprite):
+class Lampada(pygame.sprite.Sprite):
     def __init__(self, poste_img,poste):
         pygame.sprite.Sprite.__init__(self)
         self.image = poste_img

@@ -21,6 +21,7 @@ carteiro_x = 150
 # Tela
 FramePerSecond = 100
 
-INICIANDO = 0
-JOGANDO = 1
-DESISTINDO = 2
+
+ACABOU = 0
+JOGAR = 1
+MORTO = 2

@@ -2,7 +2,7 @@
 #from typing import Set
 from pygame.constants import *
 from Classes import *
-from Constantes import *
+from constantes import *
 import pygame
 tela = pygame.display.set_mode((largura, altura))
 

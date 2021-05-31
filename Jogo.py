@@ -89,6 +89,7 @@ def joguinho(tela):
             # Para sair do jogo
             if event.type == QUIT:
                 state = ACABOU
+                exit()
             # Estando no jogo
             if state == JOGAR:
                 # Para pular
@@ -107,7 +108,7 @@ def joguinho(tela):
                             state = JOGAR
                             colisoes.clear()
                             obstaculo = None
-                    if event.key == QUIT or event.key == K_q:
+                    elif event.key == QUIT or event.key == K_q:
                         state = DESISTINDO
 
         if obstaculo == None or obstaculo.rect.x < (largura - 400):
@@ -166,7 +167,5 @@ while state != DESISTINDO:
         state = joguinho(tela)
     else:
         state = DESISTINDO
-
-
 # Encerrando o PyGame
 pygame.quit()

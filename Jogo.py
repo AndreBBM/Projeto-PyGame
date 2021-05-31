@@ -38,109 +38,135 @@ cone_img = pygame.transform.scale(cone_img, (WIDTH_cone, HEIGHT_cone))
 som_do_pulo = pygame.mixer.Sound('Som/mb_jump.wav')
 
 
-todas_as_sprites = pygame.sprite.Group()
-carteiro_andando = Carteiro(carteiro_sheet)
-todas_as_sprites.add(carteiro_andando)
+def iniciando(screen):
+    clock = pygame.time.Clock()
+    background = pygame.image.load('Imagens/8bitNY.jpg').convert()
+    background = pygame.transform.scale(background, (1000, 800))
+    background_rect = background.get_rect()
+    correr = True
+    while correr:
+        clock.tick(FramePerSecond)
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                state = DESISTINDO
+                correr = False
+            if event.type == KEYUP:
+                state = JOGANDO
+                correr = False
+        screen.blit(background, background_rect)
+        pygame.display.flip()
+    return state
 
-# Grupo colisão com a carteira
-grupo_obstaculo = pygame.sprite.Group()
 
-obstaculo = None
-obstaculo_invisivel = None
-
-# São criados 2 fundos, um incial e outro logo após o primeiro, que aparece quando o primeiro sai da tela
-bg_e = 0
-bg_d = background.get_width()
-
-# Iniciando a estrutura 
-Start = True
-
-# Rodando o cenário
-clock = pygame.time.Clock()
-FramePerSecond = 100
-velocidade_tela = 2.4
-
-# Reiniciar
-def reiniciar_jogo():
-    todas_as_sprites.empty()
+def joguinho(tela):
+    # Rodando o cenário
+    clock = pygame.time.Clock()
+    
+    todas_as_sprites = pygame.sprite.Group()
+    carteiro_andando = Carteiro(carteiro_sheet)
     todas_as_sprites.add(carteiro_andando)
-    grupo_obstaculo.empty()
-    global velocidade_tela
-    velocidade_tela = 2.4
-    global colisoes
-    colisoes.clear()
-    global obstaculo
+    # Grupo colisão com a carteira
+    grupo_obstaculo = pygame.sprite.Group()
+    
+    ACABOU = 0
+    JOGAR = 1
+    MORTO = 2
+    state = JOGAR
+
     obstaculo = None
+    obstaculo_invisivel = None
 
-# Loop Principal!
-while Start:
-    clock.tick(FramePerSecond)
-    colisoes = pygame.sprite.spritecollide(carteiro_andando, grupo_obstaculo, False, pygame.sprite.collide_mask)
-    # Tratando eventos
-    for event in pygame.event.get():
-        # Para sair do jogo
-        if event.type == QUIT:
-            Start = False
-        # Para pular
-        if event.type == KEYDOWN:
-            if event.key == K_UP:
-                if carteiro_andando.rect.y != carteiro_andando.inicial_y:
-                    pass
-                else:
-                    carteiro_andando.pula()
-            if event.key == K_SPACE and len(colisoes) > 0:
-                reiniciar_jogo()
+    # São criados 2 fundos, um incial e outro logo após o primeiro, que aparece quando o primeiro sai da tela
+    bg_e = 0
+    bg_d = background.get_width()
+    
+    #pygame.mixer.music.play(loops=-1)    
+    # Loop Principal!
+    while state != ACABOU:
+        clock.tick(FramePerSecond)
+        # Tratando eventos
+        for event in pygame.event.get():
+            # Para sair do jogo
+            if event.type == QUIT:
+                state = ACABOU
+            # Estando no jogo
+            if state == JOGAR:
+                # Para pular
+                if event.type == KEYDOWN:
+                    if event.key == K_UP:
+                        if carteiro_andando.rect.y != carteiro_andando.inicial_y:
+                            pass
+                        else:
+                            carteiro_andando.pula()
+            if state == MORTO:
+                if event.type == KEYDOWN:
+                    if event.key == K_SPACE:
+                            todas_as_sprites.empty()
+                            todas_as_sprites.add(carteiro_andando)
+                            grupo_obstaculo.empty()
+                            state = JOGAR
+                            colisoes.clear()
+                            obstaculo = None
+                    if event.key == QUIT or event.key == K_q:
+                        state = DESISTINDO
 
-    # Velocidade com que o fundo se mexe
-    bg_e -= velocidade_tela
-    bg_d -= velocidade_tela
+        if obstaculo == None or obstaculo.rect.x < (largura - 400):
+            opcao = random.randint(1, 2)
+            if opcao == 1:
+                obstaculo = Cone(cone_img)
 
-    # Quando os fundos saem completamente da tela, eles voltam para o início para passarem novamente
-    if bg_e < background.get_width() * -1:
-        bg_e = background.get_width()
+            if opcao == 2:
+                referencia = Poste(poste_img)
+                obstaculo = Quadrado(poste_img, referencia)
+                todas_as_sprites.add(referencia)
 
-    if bg_d < background.get_width() * -1:
-        bg_d = background.get_width()
+            todas_as_sprites.add(obstaculo)
+            grupo_obstaculo.add(obstaculo)
+            
+        if state == MORTO:
+            velocidade_tela = 0            
+        else:
+            velocidade_tela = 2.4
+            todas_as_sprites.update()
+        colisoes = pygame.sprite.spritecollide(carteiro_andando, grupo_obstaculo, False, pygame.sprite.collide_mask)
 
-    if obstaculo == None or obstaculo.rect.x < (largura - 400):
-        opcao = random.randint(1, 2)
-        if opcao == 1:
-            obstaculo = Cone(cone_img)
+        if len(colisoes) > 0:
+            state = MORTO
+        
+        # Velocidade com que o fundo se mexe
+        bg_e -= velocidade_tela
+        bg_d -= velocidade_tela
 
-        if opcao == 2:
-            referencia = Poste(poste_img)
-            obstaculo = Quadrado(poste_img, referencia)
-            todas_as_sprites.add(referencia)
+        # Quando os fundos saem completamente da tela, eles voltam para o início para passarem novamente
+        if bg_e < background.get_width() * -1:
+            bg_e = background.get_width()
 
-        todas_as_sprites.add(obstaculo)
-        grupo_obstaculo.add(obstaculo)
+        if bg_d < background.get_width() * -1:
+            bg_d = background.get_width()
 
-    # Deleta os obstáculos que já estão fora da tela
-    for objectt in grupo_obstaculo:
-        if objectt.rect.x < -100:
-            grupo_obstaculo.remove(objectt)
-            todas_as_sprites.remove(objectt)
+        # Linhas importantes = Fazem o jogo ficar sempre se atualizando
+        tela.blit(background, (bg_e, -270))
+        tela.blit(background, (bg_d, -270))
 
-    # Linhas importantes = Fazem o jogo ficar sempre se atualizando
-    tela.blit(background, (bg_e, -270))
-    tela.blit(background, (bg_d, -270))
+        if state == MORTO:
+            cabou = mensagem("ENCOMENDAS NÃO ENTREGUES :(", 30, (255, 255, 0))
+            tela.blit(cabou, (70, 100))
+            restart = mensagem("Pressione espaço para reiniciar!", 25, (255, 255, 0))
+            tela.blit(restart, (70, 180))
+        # Caso colida com algum dos obstáculos, o fundo para de andar
+        todas_as_sprites.draw(tela)
+        pygame.display.update()
+    return state
 
-    if len(colisoes) > 0:
-        velocidade_tela = 0
-        cabou = mensagem("ENCOMENDAS NÃO ENTREGUES :(", 30, (255, 255, 0))
-        tela.blit(cabou, (70, 100))
-        restart = mensagem("Pressione espaço para reiniciar!", 25, (255, 255, 0))
-        tela.blit(restart, (70, 180))
-
+state = INICIANDO
+while state != DESISTINDO:
+    if state == INICIANDO:
+        state = iniciando(tela)
+    elif state == JOGANDO:
+        state = joguinho(tela)
     else:
-        todas_as_sprites.update()
-        grupo_obstaculo.update()
+        state = DESISTINDO
 
-    todas_as_sprites.draw(tela)
-
-    # Caso colida com algum dos obstáculos, o fundo para de andar
-
-    pygame.display.update()
 
 # Encerrando o PyGame
 pygame.quit()

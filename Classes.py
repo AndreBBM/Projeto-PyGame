@@ -83,7 +83,7 @@ class Poste(pygame.sprite.Sprite):
     def update(self):
         if self.rect.x < -self.rect.width:
             self.kill()
-        self.rect.x -= 4
+        self.rect.x -= 2
 
 # Classe do cone
 class Cone(pygame.sprite.Sprite):

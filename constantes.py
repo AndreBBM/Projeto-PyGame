@@ -17,3 +17,10 @@ HEIGHT_caixa = 50
 # Posição inicial do carteiro
 carteiro_y = 420
 carteiro_x = 150
+
+# Tela
+FramePerSecond = 100
+
+INICIANDO = 0
+JOGANDO = 1
+DESISTINDO = 2

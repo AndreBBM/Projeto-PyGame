@@ -1,6 +1,6 @@
 from pygame.constants import *
 from Classes import *
-from Constantes import *
+from constantes import *
 import pygame
 
 def executar(screen):

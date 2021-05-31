@@ -1,7 +1,7 @@
 # Importando e iniciando pacotes
 import pygame
 import os
-from Constantes import *
+from constantes import *
 pygame.mixer.init()
 
 # Para o efeito sonoro do pulo

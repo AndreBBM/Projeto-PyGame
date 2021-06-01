@@ -1,7 +1,9 @@
 from pygame.constants import *
 from Classes import *
 from constantes import *
+from Funcoes import *
 import pygame
+
 
 # Função de tela inicial
 def executar_tela_inicial(screen):
@@ -24,5 +26,9 @@ def executar_tela_inicial(screen):
                 correr = False
         # Atualizando a tela
         screen.blit(background, background_rect)
+        nome = mensagem("Olha o carteiro!", 35, (255, 255, 0))
+        screen.blit(nome, (190, 50))
+        comecar = mensagem("Pressione espaço para continuar", 20, (255, 255, 0))
+        screen.blit(comecar, (150, 450))
         pygame.display.flip()
     return state

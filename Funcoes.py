@@ -2,7 +2,6 @@ import pygame
 from pygame.constants import *
 from constantes import *
 
-
 # Exibir mensagens:
 def mensagem(msg, tamanho, cor):
     fonte = pygame.font.Font('font/PressStart2P.ttf', tamanho)

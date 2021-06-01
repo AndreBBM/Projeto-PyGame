@@ -3,7 +3,7 @@ from Classes import *
 from constantes import *
 import pygame
 import random
-from Funcoes import*
+from Funcoes import *
 
 pygame.init()       # Inicialização Pygame
 pygame.mixer.init() #Inicialização do módulo de áudio do pygame
@@ -26,29 +26,20 @@ cone_img = pygame.transform.scale(cone_img, (WIDTH_cone, HEIGHT_cone))
 
 # Carregando sons:
 som_do_pulo = pygame.mixer.Sound('Som/mb_jump.wav')
-
-#Musica de fundo:
-#pygame.mixer.music.load("A musica")
-#Volume
-#pygame.mixer.music.set_volume(volume)
+# musica_de_fundo = pygame.mixer.music.load("A musica")
+#Volume: pygame.mixer.music.set_volume(volume)
 
 
-
-def executarjoguinho(tela):
+def executar_joguinho(tela):
     # Rodando o cenário
     clock = pygame.time.Clock()
     
     todas_as_sprites = pygame.sprite.Group()
     carteiro_andando = Carteiro(carteiro_sheet)
     todas_as_sprites.add(carteiro_andando)
+
     # Grupo colisão com a carteira
     grupo_obstaculo = pygame.sprite.Group()
-    
-    ACABOU = 0
-    JOGAR = 1
-    MORTO = 2
-    state = JOGAR
-
     obstaculo = None
     obstaculo_invisivel = None
 
@@ -58,7 +49,8 @@ def executarjoguinho(tela):
        
     # Música de fundo do jogo começa a tocar
     #pygame.mixer.music.play(loops=-1)
-
+    
+    state = JOGAR
     # Loop Principal!
     while state != ACABOU:
         clock.tick(FramePerSecond)
@@ -77,7 +69,6 @@ def executarjoguinho(tela):
                             pass
                         else:
                             carteiro_andando.pula()
-
             # Se colidiu com um obstáculo
             if state == MORTO:
                 if event.type == KEYDOWN:
@@ -95,11 +86,9 @@ def executarjoguinho(tela):
         if obstaculo == None or obstaculo.rect.x < (largura - 400):
             # Aleatoriamente
             opcao = random.randint(1, 2)
-
             # Surgirá um cone
             if opcao == 1:
                 obstaculo = Cone(cone_img)
-
             # Surgirá um poste
             if opcao == 2:
                 referencia = Poste(poste_img)
@@ -112,7 +101,6 @@ def executarjoguinho(tela):
         # Caso colida com algum dos obstáculos, o fundo para de andar    
         if state == MORTO:
             velocidade_tela = 0 
-
         # Do contrário, o fundo continua a andar e atualizar as sprites           
         else:
             velocidade_tela = 2.4
@@ -125,11 +113,9 @@ def executarjoguinho(tela):
         # Velocidade com que o fundo se mexe
         bg_e -= velocidade_tela
         bg_d -= velocidade_tela
-
         # Quando os fundos saem completamente da tela, eles voltam para o início para passarem novamente
         if bg_e < background.get_width() * -1:
             bg_e = background.get_width()
-
         if bg_d < background.get_width() * -1:
             bg_d = background.get_width()
 

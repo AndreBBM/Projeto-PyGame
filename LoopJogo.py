@@ -32,7 +32,7 @@ cone_img = pygame.transform.scale(cone_img, (WIDTH_cone, HEIGHT_cone))
 som_do_pulo = pygame.mixer.Sound('Som/mb_jump.wav')
 
 
-def executar(tela):
+def executarjoguinho(tela):
     # Rodando o cenário
     clock = pygame.time.Clock()
     
@@ -83,7 +83,7 @@ def executar(tela):
                             colisoes.clear()
                             obstaculo = None
                     elif event.key == QUIT or event.key == K_q:
-                        state = DESISTINDO
+                        state = MORTO
 
         if obstaculo == None or obstaculo.rect.x < (largura - 400):
             opcao = random.randint(1, 2)

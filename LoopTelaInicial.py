@@ -3,7 +3,7 @@ from Classes import *
 from constantes import *
 import pygame
 
-def executar(screen):
+def executartelainicial(screen):
     clock = pygame.time.Clock()
     background = pygame.image.load('Imagens/8bitNY.jpg').convert()
     background = pygame.transform.scale(background, (1000, 800))
@@ -13,10 +13,10 @@ def executar(screen):
         clock.tick(FramePerSecond)
         for event in pygame.event.get():
             if event.type == QUIT:
-                state = DESISTINDO
+                state = MORTO
                 correr = False
             if event.type == KEYUP:
-                state = JOGANDO
+                state = JOGAR
                 correr = False
         screen.blit(background, background_rect)
         pygame.display.flip()

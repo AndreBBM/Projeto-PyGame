@@ -10,14 +10,14 @@ import LoopJogo
 import LoopTelaInicial
 
 
-state = INICIANDO
-while state != DESISTINDO:
-    if state == INICIANDO:
-        state = LoopTelaInicial.executar(tela)
-    elif state == JOGANDO:
-        state = LoopJogo.executar(tela)
+state = ACABOU
+while state != MORTO:
+    if state == ACABOU:
+        state = LoopTelaInicial.executartelainicial(tela)
+    elif state == JOGAR:
+        state = LoopJogo.executarjoguinho(tela)
     else:
-        state = DESISTINDO
+        state = MORTO
 
 # Encerrando o PyGame
 pygame.quit()

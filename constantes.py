@@ -17,3 +17,14 @@ HEIGHT_caixa = 50
 # Posição inicial do carteiro
 carteiro_y = 420
 carteiro_x = 150
+
+# Tela
+FramePerSecond = 100
+
+#Constantes para as condições do jogo
+ACABOU = 0
+JOGAR = 1
+MORTO = 2
+
+#Volume Som do Jogo
+volume=0.4

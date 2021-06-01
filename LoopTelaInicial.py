@@ -6,7 +6,7 @@ import pygame
 def executartelainicial(screen):
     clock = pygame.time.Clock()
     background = pygame.image.load('Imagens/8bitNY.jpg').convert()
-    background = pygame.transform.scale(background, (1000, 800))
+    background = pygame.transform.scale(background, (largura, altura))
     background_rect = background.get_rect()
     correr = True
     while correr:

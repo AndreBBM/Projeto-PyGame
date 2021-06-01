@@ -13,9 +13,11 @@ som_do_pulo = pygame.mixer.Sound('Som/mb_jump.wav')
 class Carteiro(pygame.sprite.Sprite):
     def __init__(self, carteiro_sheet):
         pygame.sprite.Sprite.__init__(self)
+
         # Colocando o som do pulo e aumentando o volume do som
         self.som_do_pulo = pygame.mixer.Sound(os.path.join(diretorio_sons, 'mb_jump.wav'))
         self.som_do_pulo.set_volume(0.9)
+
         # Faces da carteira e dimensionando escala
         self.img1 = carteiro_sheet.subsurface((0, 0), (235, 336))
         self.img1 = pygame.transform.scale(self.img1, (235 - 170, 336 - 250))
@@ -27,6 +29,7 @@ class Carteiro(pygame.sprite.Sprite):
         self.index_lista = 0
         self.image = self.imagens[self.index_lista]
         self.rect = self.image.get_rect()
+
         # Criando máscara da sprite
         self.mask = pygame.mask.from_surface(self.image)
         self.rect.x = carteiro_x
@@ -75,6 +78,7 @@ class Poste(pygame.sprite.Sprite):
         self.image = poste_img
         self.image = pygame.transform.scale(self.image, (100, 200))
         self.rect = self.image.get_rect()
+
         # Máscara de colisão
         self.mask = pygame.mask.from_surface(self.image)
         self.rect.x = largura
@@ -92,6 +96,7 @@ class Cone(pygame.sprite.Sprite):
         self.image = cone_img
         self.image = pygame.transform.scale(self.image, (60, 60))
         self.rect = self.image.get_rect()
+        
         # Criando máscara da sprite
         self.mask = pygame.mask.from_surface(self.image)
         self.rect.x = largura

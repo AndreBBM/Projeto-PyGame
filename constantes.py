@@ -21,7 +21,7 @@ carteiro_x = 150
 # Tela
 FramePerSecond = 100
 
-
+#Constantes para as condições do jogo
 ACABOU = 0
 JOGAR = 1
 MORTO = 2

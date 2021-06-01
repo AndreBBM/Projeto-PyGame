@@ -5,8 +5,9 @@ import pygame
 import random
 from Funcoes import*
 
-pygame.init()
-pygame.mixer.init()
+pygame.init()       # Inicialização Pygame
+pygame.mixer.init() #Inicialização do módulo de áudio do pygame
+
 # Criando a tela do jogo
 pygame.display.set_caption('Olha o Carteiro!')
 
@@ -25,6 +26,12 @@ cone_img = pygame.transform.scale(cone_img, (WIDTH_cone, HEIGHT_cone))
 
 # Carregando sons:
 som_do_pulo = pygame.mixer.Sound('Som/mb_jump.wav')
+
+#Musica de fundo:
+#pygame.mixer.music.load("A musica")
+#Volume
+#pygame.mixer.music.set_volume(volume)
+
 
 
 def executarjoguinho(tela):
@@ -49,7 +56,7 @@ def executarjoguinho(tela):
     bg_e = 0
     bg_d = background.get_width()
        
-    # Música de fundo do jogo
+    # Música de fundo do jogo começa a tocar
     #pygame.mixer.music.play(loops=-1)
 
     # Loop Principal!

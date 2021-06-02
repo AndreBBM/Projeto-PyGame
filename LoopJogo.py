@@ -131,13 +131,13 @@ def executar_joguinho(tela):
             tela.blit(cabou, (70, 100))
             restart = mensagem("Pressione espaço para reiniciar!", 25, (255, 255, 0))
             tela.blit(restart, (70, 180))
-            tempo = mensagem(f"{frames/FramePerSecond}", 30, (255, 255, 0))
-            tela.blit(tempo, (70, 300))
+            Frame = mensagem(f"{frames}", 30, (255, 255, 0))
+            tela.blit(Frame, (70, 300))
         else:
             # Teste contagem quadros
             contagem = mensagem(f"{frames}", 30, (255, 255, 0))
             tela.blit(contagem, (largura-200, 10))
-            frames+=1
+            frames+=10
 
         if frames % 500==0:
             carteiro_andando.pontuacao_pontos()

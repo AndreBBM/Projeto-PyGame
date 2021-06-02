@@ -133,9 +133,14 @@ def executar_joguinho(tela):
             frames = 0
         else:
             # Teste contagem quadros
-            contagem = mensagem(f"{frames/FramePerSecond}", 30, (255, 255, 0))
+            contagem = mensagem(f"{frames}", 30, (255, 255, 0))
             tela.blit(contagem, (largura-200, 10))
             frames+=1
+
+        if frames % 500==0:
+            carteiro_andando.pontuacao_pontos()
+            #carteiro_andando.para()
+            
         todas_as_sprites.draw(tela)
         # Atualizando o jogo
         pygame.display.update()

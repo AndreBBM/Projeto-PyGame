@@ -25,7 +25,7 @@ cone_img = pygame.image.load('Imagens/cone.png').convert_alpha()
 cone_img = pygame.transform.scale(cone_img, (WIDTH_cone, HEIGHT_cone))
 
 def executar_joguinho(tela):
-    frames =0
+    frames = 0
     pygame.mixer.music.load("Som/gorgonzola_city.ogg")
     # Volume: 
     pygame.mixer.music.set_volume(volume)
@@ -79,6 +79,7 @@ def executar_joguinho(tela):
                         state = JOGAR
                         colisoes.clear()
                         obstaculo = None
+                        frames = 0
                     elif event.key == QUIT or event.key == K_q:
                         state = MORTO
 
@@ -130,7 +131,8 @@ def executar_joguinho(tela):
             tela.blit(cabou, (70, 100))
             restart = mensagem("Pressione espaço para reiniciar!", 25, (255, 255, 0))
             tela.blit(restart, (70, 180))
-            frames = 0
+            tempo = mensagem(f"{frames/FramePerSecond}", 30, (255, 255, 0))
+            tela.blit(tempo, (70, 300))
         else:
             # Teste contagem quadros
             contagem = mensagem(f"{frames/FramePerSecond}", 30, (255, 255, 0))

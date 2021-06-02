@@ -31,4 +31,8 @@ MORTO = 2
 volume=0.4
 
 #velocidade do jogo
-velocidade_jogo=2
+class Velocidade ():
+    def __init__(self):
+        self.acelera=2
+acelera=Velocidade()
+

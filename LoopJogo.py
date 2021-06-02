@@ -24,8 +24,6 @@ caixas_img = pygame.transform.scale(caixas_img, (WIDTH_caixa, HEIGHT_caixa))
 cone_img = pygame.image.load('Imagens/cone.png').convert_alpha()
 cone_img = pygame.transform.scale(cone_img, (WIDTH_cone, HEIGHT_cone))
 
-
-
 def executar_joguinho(tela):
     frames =0
     pygame.mixer.music.load("Som/gorgonzola_city.ogg")

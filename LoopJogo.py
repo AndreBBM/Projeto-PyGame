@@ -24,15 +24,14 @@ caixas_img = pygame.transform.scale(caixas_img, (WIDTH_caixa, HEIGHT_caixa))
 cone_img = pygame.image.load('Imagens/cone.png').convert_alpha()
 cone_img = pygame.transform.scale(cone_img, (WIDTH_cone, HEIGHT_cone))
 
-# Carregando sons:
-som_do_pulo = pygame.mixer.Sound('Som/mb_jump.wav')
-
-
-# musica_de_fundo = pygame.mixer.music.load("A musica")
-# Volume: pygame.mixer.music.set_volume(volume)
 
 
 def executar_joguinho(tela):
+    frames =0
+    pygame.mixer.music.load("Som/gorgonzola_city.ogg")
+    # Volume: 
+    pygame.mixer.music.set_volume(volume)
+
     # Rodando o cenário
     clock = pygame.time.Clock()
 
@@ -50,7 +49,7 @@ def executar_joguinho(tela):
     bg_d = background.get_width()
 
     # Música de fundo do jogo começa a tocar
-    # pygame.mixer.music.play(loops=-1)
+    pygame.mixer.music.play(loops=-1)
 
     state = JOGAR
     # Loop Principal!
@@ -75,6 +74,7 @@ def executar_joguinho(tela):
             if state == MORTO:
                 if event.type == KEYDOWN:
                     if event.key == K_SPACE:
+                        pygame.mixer.music.play()
                         todas_as_sprites.empty()
                         todas_as_sprites.add(carteiro_andando)
                         grupo_obstaculo.empty()
@@ -109,7 +109,9 @@ def executar_joguinho(tela):
             todas_as_sprites.update()
         colisoes = pygame.sprite.spritecollide(carteiro_andando, grupo_obstaculo, False, pygame.sprite.collide_mask)
 
-        if len(colisoes) > 0:
+        if len(colisoes) > 0 and state != MORTO:
+            carteiro_andando.tocar_som_colisao()
+            pygame.mixer.music.stop()
             state = MORTO
 
         # Velocidade com que o fundo se mexe
@@ -130,7 +132,12 @@ def executar_joguinho(tela):
             tela.blit(cabou, (70, 100))
             restart = mensagem("Pressione espaço para reiniciar!", 25, (255, 255, 0))
             tela.blit(restart, (70, 180))
-
+            frames = 0
+        else:
+            # Teste contagem quadros
+            contagem = mensagem(f"{frames/FramePerSecond}", 30, (255, 255, 0))
+            tela.blit(contagem, (largura-200, 10))
+            frames+=1
         todas_as_sprites.draw(tela)
         # Atualizando o jogo
         pygame.display.update()

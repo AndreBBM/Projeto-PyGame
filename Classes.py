@@ -53,7 +53,7 @@ class Carteiro(pygame.sprite.Sprite):
         if self.pular == True:
             if self.rect.y <= 150:
                 self.pular = False
-            self.rect.y -= 10
+            self.rect.y -= 12
         if self.index_lista > 2:
             self.index_lista = 0
         else:

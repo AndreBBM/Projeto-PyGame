@@ -1,3 +1,4 @@
+
 # Dimensões da tela
 largura = 900
 altura = 500
@@ -28,3 +29,4 @@ MORTO = 2
 
 #Volume Som do Jogo
 volume=0.4
+

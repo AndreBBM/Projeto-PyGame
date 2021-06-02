@@ -8,6 +8,7 @@ import pygame
 def executar_tela_inicial(screen):
     #Música de inicio
     pygame.mixer.music.load("Som/Near_and_Far.ogg")
+    pygame.mixer.music.set_volume(volume)
     clock = pygame.time.Clock()
     # Tela de fundo
     background = pygame.image.load('Imagens/8bitNY.jpg').convert()

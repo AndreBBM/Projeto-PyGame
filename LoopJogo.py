@@ -25,6 +25,7 @@ cone_img = pygame.image.load('Imagens/cone.png').convert_alpha()
 cone_img = pygame.transform.scale(cone_img, (WIDTH_cone, HEIGHT_cone))
 
 def executar_joguinho(tela):
+    mais_rapido=velocidade_jogo
     frames = 0
     pygame.mixer.music.load("Som/gorgonzola_city.ogg")
     # Volume: 
@@ -131,13 +132,18 @@ def executar_joguinho(tela):
             tela.blit(cabou, (70, 100))
             restart = mensagem("Pressione espaço para reiniciar!", 25, (255, 255, 0))
             tela.blit(restart, (70, 180))
-            tempo = mensagem(f"{frames/FramePerSecond}", 30, (255, 255, 0))
-            tela.blit(tempo, (70, 300))
+            Frame = mensagem("Pontuação:" f"{frames}", 30, (255, 255, 0))
+            tela.blit(Frame, (450, 300))
         else:
             # Teste contagem quadros
-            contagem = mensagem(f"{frames/FramePerSecond}", 30, (255, 255, 0))
+            contagem = mensagem(f"{frames}", 30, (255, 255, 0))
             tela.blit(contagem, (largura-200, 10))
-            frames+=1
+            frames += 5
+
+        if frames % 3000==0:
+            carteiro_andando.pontuacao_pontos()
+            mais_rapido+=1
+            
         todas_as_sprites.draw(tela)
         # Atualizando o jogo
         pygame.display.update()

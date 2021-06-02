@@ -21,6 +21,8 @@ class Carteiro(pygame.sprite.Sprite):
         self.som_do_pulo.set_volume(0.7)
         self.som_de_colisao = pygame.mixer.Sound(os.path.join(diretorio_sons, 'sfx_hurt.ogg'))
         self.som_de_colisao.set_volume(0.7)
+        self.som_pontos = pygame.mixer.Sound(os.path.join(diretorio_sons, 'bell.wav'))
+        self.som_pontos.set_volume(0.7)
         # Faces da carteira e dimensionando escala
         self.img1 = carteiro_sheet.subsurface((0, 0), (235, 336))
         self.img1 = pygame.transform.scale(self.img1, (235 - 170, 336 - 250))
@@ -46,6 +48,10 @@ class Carteiro(pygame.sprite.Sprite):
     def pula(self):
         self.pular = True
         self.som_do_pulo.play()
+
+    def pontuacao_pontos(self):
+        self.som_pontos.play()
+
 
     def update(self):
         if self.pular == True:
@@ -95,7 +101,7 @@ class Poste(pygame.sprite.Sprite):
     def update(self):
         if self.rect.x < -self.rect.width:
             self.kill()
-        self.rect.x -= 2
+        self.rect.x -= velocidade_jogo
 
 
 # Classe do cone
@@ -114,7 +120,7 @@ class Cone(pygame.sprite.Sprite):
     def update(self):
         if self.rect.x < -self.rect.width:
             self.kill()
-        self.rect.x -= 2
+        self.rect.x -= velocidade_jogo
 
 
 class Lampada(pygame.sprite.Sprite):
@@ -130,4 +136,4 @@ class Lampada(pygame.sprite.Sprite):
     def update(self):
         if self.rect.topright[0] < 0:
             self.rect.centerx = self.referencia_poste.rect.centerx
-        self.rect.x -= 2
+        self.rect.x -= velocidade_jogo

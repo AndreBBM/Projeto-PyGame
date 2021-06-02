@@ -30,3 +30,5 @@ MORTO = 2
 #Volume Som do Jogo
 volume=0.4
 
+#velocidade do jogo
+velocidade_jogo=2

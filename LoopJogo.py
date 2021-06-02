@@ -141,8 +141,9 @@ def executar_joguinho(tela):
 
         if frames % 3000==0:
             carteiro_andando.pontuacao_pontos()
-            #velocidade_jogo+=1
-            #print(velocidade_jogo)
+            acelera.acelera+=1
+            print(acelera.acelera)
+            
             
         todas_as_sprites.draw(tela)
         # Atualizando o jogo

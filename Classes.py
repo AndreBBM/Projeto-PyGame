@@ -7,9 +7,6 @@ pygame.mixer.init()
 # Para o efeito sonoro do pulo
 diretorio_principal = os.path.dirname(__file__)
 diretorio_sons = os.path.join(diretorio_principal, 'som')
-#som_do_pulo = pygame.mixer.Sound('Som/mb_jump.wav')
-#som_de_colisao = pygame.mixer.Sound('Som/sfx_hurt.ogg')
-
 
 # Classe do carteiro
 class Carteiro(pygame.sprite.Sprite):
@@ -87,6 +84,8 @@ class Caixa(pygame.sprite.Sprite):
 # Classe do poste
 class Poste(pygame.sprite.Sprite):
     def __init__(self, poste_img):
+       
+
         pygame.sprite.Sprite.__init__(self)
         self.image = poste_img
         self.image = pygame.transform.scale(self.image, (100, 200))
@@ -100,12 +99,14 @@ class Poste(pygame.sprite.Sprite):
     def update(self):
         if self.rect.x < -self.rect.width:
             self.kill()
-        self.rect.x -= velocidade_jogo
+        self.rect.x -= acelera.acelera
 
 
 # Classe do cone
 class Cone(pygame.sprite.Sprite):
     def __init__(self, cone_img):
+
+
         pygame.sprite.Sprite.__init__(self)
         self.image = cone_img
         self.image = pygame.transform.scale(self.image, (60, 60))
@@ -119,11 +120,12 @@ class Cone(pygame.sprite.Sprite):
     def update(self):
         if self.rect.x < -self.rect.width:
             self.kill()
-        self.rect.x -= velocidade_jogo
+        self.rect.x -= acelera.acelera
 
 
 class Lampada(pygame.sprite.Sprite):
     def __init__(self, poste_img, poste):
+
         pygame.sprite.Sprite.__init__(self)
         self.image = poste_img
         self.image = poste_img.subsurface((0, 0), (100, 60))
@@ -135,4 +137,4 @@ class Lampada(pygame.sprite.Sprite):
     def update(self):
         if self.rect.topright[0] < 0:
             self.rect.centerx = self.referencia_poste.rect.centerx
-        self.rect.x -= velocidade_jogo
+        self.rect.x -= acelera.acelera

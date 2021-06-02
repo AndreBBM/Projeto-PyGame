@@ -51,9 +51,6 @@ class Carteiro(pygame.sprite.Sprite):
 
     def pontuacao_pontos(self):
         self.som_pontos.play()
-        
-    def para(self):
-        self.som_pontos.stop()
 
 
     def update(self):

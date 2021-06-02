@@ -25,6 +25,7 @@ cone_img = pygame.image.load('Imagens/cone.png').convert_alpha()
 cone_img = pygame.transform.scale(cone_img, (WIDTH_cone, HEIGHT_cone))
 
 def executar_joguinho(tela):
+    mais_rapido=velocidade_jogo
     frames = 0
     pygame.mixer.music.load("Som/gorgonzola_city.ogg")
     # Volume: 
@@ -141,6 +142,7 @@ def executar_joguinho(tela):
 
         if frames % 3000==0:
             carteiro_andando.pontuacao_pontos()
+            mais_rapido+=1
             
         todas_as_sprites.draw(tela)
         # Atualizando o jogo

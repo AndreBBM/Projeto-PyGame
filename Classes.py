@@ -101,7 +101,7 @@ class Poste(pygame.sprite.Sprite):
     def update(self):
         if self.rect.x < -self.rect.width:
             self.kill()
-        self.rect.x -= 2
+        self.rect.x -= velocidade_jogo
 
 
 # Classe do cone
@@ -120,7 +120,7 @@ class Cone(pygame.sprite.Sprite):
     def update(self):
         if self.rect.x < -self.rect.width:
             self.kill()
-        self.rect.x -= 2
+        self.rect.x -= velocidade_jogo
 
 
 class Lampada(pygame.sprite.Sprite):
@@ -136,4 +136,4 @@ class Lampada(pygame.sprite.Sprite):
     def update(self):
         if self.rect.topright[0] < 0:
             self.rect.centerx = self.referencia_poste.rect.centerx
-        self.rect.x -= 2
+        self.rect.x -= velocidade_jogo

@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="46fd3be3-3b38-4247-82cf-f18ee2046ce5" name="Default Changelist" comment=".">
+    <list default="true" id="46fd3be3-3b38-4247-82cf-f18ee2046ce5" name="Default Changelist" comment="Adicionando título para a tela inicial">
+      <change afterPath="$PROJECT_DIR$/a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LoopJogo.py" beforeDir="false" afterPath="$PROJECT_DIR$/LoopJogo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LoopTelaInicial.py" beforeDir="false" afterPath="$PROJECT_DIR$/LoopTelaInicial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jogo.py" beforeDir="false" afterPath="$PROJECT_DIR$/Jogo.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,7 +260,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622567059767</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Adicionando título para a tela inicial">
+      <created>1622569102659</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1622569102659</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -294,6 +299,7 @@
     <MESSAGE value="Agora o jogo reinicia corretamente ao apertar espaço" />
     <MESSAGE value="Adicionada fonte pixelada" />
     <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <MESSAGE value="Adicionando título para a tela inicial" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adicionando título para a tela inicial" />
   </component>
 </project>

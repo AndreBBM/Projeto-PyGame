@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="46fd3be3-3b38-4247-82cf-f18ee2046ce5" name="Default Changelist" comment="Mudando a musiquinha inicial">
+    <list default="true" id="46fd3be3-3b38-4247-82cf-f18ee2046ce5" name="Default Changelist" comment=".">
       <change beforePath="$PROJECT_DIR$/LoopTelaInicial.py" beforeDir="false" afterPath="$PROJECT_DIR$/LoopTelaInicial.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +24,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -279,7 +280,28 @@
       <option name="project" value="LOCAL" />
       <updated>1622639961145</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Ajustando o volume da música da tela inicial">
+      <created>1622640144414</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1622640144414</updated>
+    </task>
+    <task id="LOCAL-00023" summary=".">
+      <created>1622641608232</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1622641608232</updated>
+    </task>
+    <task id="LOCAL-00024" summary=".">
+      <created>1622643476784</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1622643476784</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -305,14 +327,16 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Imagens provisórias" />
     <MESSAGE value="Aumentei um pouco a tela, de acordo com a sugestão do Humberto" />
     <MESSAGE value="Aumentei um pouco a tela, de acordo com a sugestão do Humberto.&#10;Oq acharam?" />
     <MESSAGE value="Agora o jogo reinicia corretamente ao apertar espaço" />
     <MESSAGE value="Adicionada fonte pixelada" />
-    <MESSAGE value="." />
     <MESSAGE value="Adicionando título para a tela inicial" />
     <MESSAGE value="Mudando a musiquinha inicial" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mudando a musiquinha inicial" />
+    <MESSAGE value="Ajustando o volume da música da tela inicial" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
 </project>

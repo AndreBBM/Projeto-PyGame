@@ -24,8 +24,8 @@ caixas_img = pygame.transform.scale(caixas_img, (WIDTH_caixa, HEIGHT_caixa))
 cone_img = pygame.image.load('Imagens/cone.png').convert_alpha()
 cone_img = pygame.transform.scale(cone_img, (WIDTH_cone, HEIGHT_cone))
 
+
 def executar_joguinho(tela):
-    mais_rapido=velocidade_jogo
     frames = 0
     pygame.mixer.music.load("Som/gorgonzola_city.ogg")
     # Volume: 
@@ -41,7 +41,6 @@ def executar_joguinho(tela):
     # Grupo colisão com a carteira
     grupo_obstaculo = pygame.sprite.Group()
     obstaculo = None
-    obstaculo_invisivel = None
 
     # São criados 2 fundos, um incial e outro logo após o primeiro, que aparece quando o primeiro sai da tela
     bg_e = 0
@@ -142,7 +141,8 @@ def executar_joguinho(tela):
 
         if frames % 3000==0:
             carteiro_andando.pontuacao_pontos()
-            mais_rapido+=1
+            #velocidade_jogo+=1
+            #print(velocidade_jogo)
             
         todas_as_sprites.draw(tela)
         # Atualizando o jogo

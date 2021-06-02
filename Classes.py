@@ -2,7 +2,6 @@
 import pygame
 import os
 from constantes import *
-
 pygame.mixer.init()
 
 # Para o efeito sonoro do pulo
@@ -11,6 +10,7 @@ diretorio_sons = os.path.join(diretorio_principal, 'som')
 #som_do_pulo = pygame.mixer.Sound('Som/mb_jump.wav')
 #som_de_colisao = pygame.mixer.Sound('Som/sfx_hurt.ogg')
 
+
 # Classe do carteiro
 class Carteiro(pygame.sprite.Sprite):
     def __init__(self, carteiro_sheet):
@@ -18,11 +18,11 @@ class Carteiro(pygame.sprite.Sprite):
 
         # Colocando o som do pulo e aumentando o volume do som
         self.som_do_pulo = pygame.mixer.Sound(os.path.join(diretorio_sons, 'mb_jump.wav'))
-        self.som_do_pulo.set_volume(0.7)
+        self.som_do_pulo.set_volume(volume)
         self.som_de_colisao = pygame.mixer.Sound(os.path.join(diretorio_sons, 'sfx_hurt.ogg'))
-        self.som_de_colisao.set_volume(0.7)
+        self.som_de_colisao.set_volume(volume)
         self.som_pontos = pygame.mixer.Sound(os.path.join(diretorio_sons, 'bell.wav'))
-        self.som_pontos.set_volume(0.7)
+        self.som_pontos.set_volume(volume)
         # Faces da carteira e dimensionando escala
         self.img1 = carteiro_sheet.subsurface((0, 0), (235, 336))
         self.img1 = pygame.transform.scale(self.img1, (235 - 170, 336 - 250))
@@ -51,7 +51,6 @@ class Carteiro(pygame.sprite.Sprite):
 
     def pontuacao_pontos(self):
         self.som_pontos.play()
-
 
     def update(self):
         if self.pular == True:

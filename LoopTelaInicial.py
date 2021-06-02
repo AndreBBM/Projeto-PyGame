@@ -17,6 +17,8 @@ def executar_tela_inicial(screen):
     background_rect = background.get_rect()
     carteiro_img = pygame.image.load('Imagens/MailmanFemale.png').convert_alpha()
     carteiro_img = pygame.transform.scale(carteiro_img, (230, 300))
+    caixa_correio = pygame.image.load('Imagens/poste.png').convert_alpha()
+    caixa_correio = pygame.transform.scale(carteiro_img, (230, 300))
 
     correr = True
     # Música de fundo do jogo começa a tocar
@@ -41,6 +43,7 @@ def executar_tela_inicial(screen):
         # Atualizando a tela
         screen.blit(background, background_rect)
         screen.blit(carteiro_img, (60, 100))
+        screen.blit(caixa_correio, (160, 160))
         nome = mensagem("Olha o carteiro!", 35, (255, 255, 0))
         screen.blit(nome, (190, 50))
         comecar = mensagem("Pressione espaço para continuar", 20, (255, 255, 0))

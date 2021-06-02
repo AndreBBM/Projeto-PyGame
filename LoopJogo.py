@@ -80,6 +80,7 @@ def executar_joguinho(tela):
                         colisoes.clear()
                         obstaculo = None
                         frames = 0
+                        acelera.acelera=2
                     elif event.key == QUIT or event.key == K_q:
                         state = MORTO
 
@@ -141,7 +142,7 @@ def executar_joguinho(tela):
 
         if frames % 3000==0:
             carteiro_andando.pontuacao_pontos()
-            acelera.acelera+=1
+            acelera.acelera+=0.5
             print(acelera.acelera)
             
             

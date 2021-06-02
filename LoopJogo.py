@@ -137,9 +137,9 @@ def executar_joguinho(tela):
             # Teste contagem quadros
             contagem = mensagem(f"{frames}", 30, (255, 255, 0))
             tela.blit(contagem, (largura-200, 10))
-            frames+=10
+            frames+=5
 
-        if frames % 500==0:
+        if frames % 3000==0:
             carteiro_andando.pontuacao_pontos()
             #carteiro_andando.para()
             

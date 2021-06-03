@@ -1,4 +1,3 @@
-
 # Dimensões da tela
 largura = 900
 altura = 500
@@ -29,10 +28,3 @@ MORTO = 2
 
 #Volume Som do Jogo
 volume=0.4
-
-#velocidade do jogo
-class Velocidade ():
-    def __init__(self):
-        self.acelera=2
-acelera=Velocidade()
-

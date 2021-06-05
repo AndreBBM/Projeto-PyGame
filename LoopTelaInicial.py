@@ -42,10 +42,10 @@ def executar_tela_inicial(screen):
 
         # Atualizando a tela
         screen.blit(background, background_rect)
-        screen.blit(carteiro_img, (100, 150))
-        screen.blit(caixa_correio, (150, 110))
+        screen.blit(carteiro_img, (280, 150))
+        screen.blit(caixa_correio, (330, 110))
         nome = mensagem("Olha o carteiro!", 35, (255, 255, 0))
-        screen.blit(nome, (190, 50))
+        screen.blit(nome, (180, 50))
         comecar = mensagem("Pressione espaço para continuar", 20, (255, 255, 0))
         screen.blit(comecar, (150, 470))
 

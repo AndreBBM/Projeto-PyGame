@@ -9,6 +9,7 @@ tela = pygame.display.set_mode((largura, altura))
 
 import LoopJogo
 import LoopTelaInicial
+import LoopTelaInfo
 
 state = ACABOU
 # Enquanto diferente de morto
@@ -16,6 +17,9 @@ while state != MORTO:
     # Se acabou, aparece a tela inicial
     if state == ACABOU:
         state = LoopTelaInicial.executar_tela_inicial(tela)
+    # Apertou espaço na tela inicial:
+    elif state == INFO:
+        state=LoopTelaInfo.executar_tela_info(tela)
     # Se jogar, mostrar a tela do jogo em si
     elif state == JOGAR:
         state = LoopJogo.executar_joguinho(tela)

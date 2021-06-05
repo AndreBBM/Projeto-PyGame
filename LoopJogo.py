@@ -142,7 +142,7 @@ def executar_joguinho(tela):
 
         if frames % 5000==0:
             carteiro_andando.pontuacao_pontos()
-            while acelera.acelera<=6:
+            if acelera.acelera<=8:
                 acelera.acelera+=0.5
             print(acelera.acelera)
             

@@ -8,6 +8,12 @@ pygame.mixer.init()
 diretorio_principal = os.path.dirname(__file__)
 diretorio_sons = os.path.join(diretorio_principal, 'som')
 
+# Velocidade do jogo
+class Velocidade ():
+    def __init__(self):
+        self.acelera = 2
+acelera = Velocidade()
+
 # Classe do carteiro
 class Carteiro(pygame.sprite.Sprite):
     def __init__(self, carteiro_sheet):
@@ -51,7 +57,7 @@ class Carteiro(pygame.sprite.Sprite):
 
     def update(self):
         if self.pular == True:
-            if self.rect.y <= 150:
+            if self.rect.y <= 175:
                 self.pular = False
             self.rect.y -= 15
         if self.index_lista > 2:

@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="46fd3be3-3b38-4247-82cf-f18ee2046ce5" name="Default Changelist" comment="Adicionando um sorrisinho na nossa carteira">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="46fd3be3-3b38-4247-82cf-f18ee2046ce5" name="Default Changelist" comment="Atualizando o README" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -359,7 +356,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622924117694</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Atualizando o README">
+      <created>1622926143448</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1622926143448</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -397,6 +401,7 @@
     <MESSAGE value="Adicionando Caixa de correio e o começo da tela inicial" />
     <MESSAGE value="." />
     <MESSAGE value="Adicionando um sorrisinho na nossa carteira" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adicionando um sorrisinho na nossa carteira" />
+    <MESSAGE value="Atualizando o README" />
+    <option name="LAST_COMMIT_MESSAGE" value="Atualizando o README" />
   </component>
 </project>

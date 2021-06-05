@@ -36,7 +36,7 @@ def executar_tela_inicial(screen):
                 correr = False
             if event.type == KEYUP:
                 if event.key == K_SPACE:
-                    state = JOGAR
+                    state = INFO
                     correr = False
                     # pygame.mixer.music.stop()
 

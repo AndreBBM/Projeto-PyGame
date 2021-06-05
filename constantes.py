@@ -25,6 +25,7 @@ FramePerSecond = 100
 ACABOU = 0
 JOGAR = 1
 MORTO = 2
+INFO = 3
 
 #Volume Som do Jogo
 volume= 0.2

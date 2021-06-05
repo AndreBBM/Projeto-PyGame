@@ -126,6 +126,7 @@ def executar_joguinho(tela):
         # Linhas importantes = Fazem a tela do jogo ficar sempre se atualizando
         tela.blit(background, (bg_e, -270))
         tela.blit(background, (bg_d, -270))
+        todas_as_sprites.draw(tela)
 
         if state == MORTO:
             cabou = mensagem("ENCOMENDAS NÃO ENTREGUES :(", 30, (255, 255, 0))
@@ -134,6 +135,18 @@ def executar_joguinho(tela):
             tela.blit(restart, (70, 180))
             Frame = mensagem("Pontuação:" f"{frames}", 30, (255, 255, 0))
             tela.blit(Frame, (420, 300))
+            #hisc= open("highscore.txt","r")
+            #highscore=hisc.read()
+            #hisc= open("highscore.txt","w")
+            #string=int(highscore)
+            #print(string)
+            #if frames>highscore:
+                #hisc.write(str(frames))
+                #highscore=frames
+            #hisc.close()
+            #Record= mensagem("Atual Recorde:" f"{highscore}", 30, (255, 255, 0))
+            #tela.blit(Record, (350, 400))
+
         else:
             # Teste contagem quadros
             contagem = mensagem(f"{frames}", 30, (255, 255, 0))
@@ -147,7 +160,7 @@ def executar_joguinho(tela):
             print(acelera.acelera)
             
             
-        todas_as_sprites.draw(tela)
+        
         # Atualizando o jogo
         pygame.display.update()
 

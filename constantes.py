@@ -27,4 +27,4 @@ JOGAR = 1
 MORTO = 2
 
 #Volume Som do Jogo
-volume=0.4
+volume= 0.2

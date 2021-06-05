@@ -142,7 +142,8 @@ def executar_joguinho(tela):
 
         if frames % 5000==0:
             carteiro_andando.pontuacao_pontos()
-            acelera.acelera+=1
+            if acelera.acelera<=8:
+                acelera.acelera+=0.5
             print(acelera.acelera)
             
         todas_as_sprites.draw(tela)

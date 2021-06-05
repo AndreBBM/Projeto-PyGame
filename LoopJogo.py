@@ -80,11 +80,12 @@ def executar_joguinho(tela):
                         colisoes.clear()
                         obstaculo = None
                         frames = 0
+                        acelera.acelera=2
                     elif event.key == QUIT or event.key == K_q:
                         state = MORTO
 
         # Para surgir os obstáculos
-        if obstaculo == None or obstaculo.rect.x < (largura - 400):
+        if obstaculo == None or obstaculo.rect.x < (largura - 500):
             # Aleatoriamente
             opcao = random.randint(1, 2)
             # Surgirá um cone
@@ -132,14 +133,14 @@ def executar_joguinho(tela):
             restart = mensagem("Pressione espaço para reiniciar!", 25, (255, 255, 0))
             tela.blit(restart, (70, 180))
             Frame = mensagem("Pontuação:" f"{frames}", 30, (255, 255, 0))
-            tela.blit(Frame, (450, 300))
+            tela.blit(Frame, (420, 300))
         else:
             # Teste contagem quadros
             contagem = mensagem(f"{frames}", 30, (255, 255, 0))
-            tela.blit(contagem, (largura-200, 10))
+            tela.blit(contagem, (largura-300, 10))
             frames += 5
 
-        if frames % 3000==0:
+        if frames % 5000==0:
             carteiro_andando.pontuacao_pontos()
             acelera.acelera+=1
             print(acelera.acelera)

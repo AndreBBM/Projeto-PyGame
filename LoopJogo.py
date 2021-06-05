@@ -145,7 +145,6 @@ def executar_joguinho(tela):
             acelera.acelera+=1
             print(acelera.acelera)
             
-            
         todas_as_sprites.draw(tela)
         # Atualizando o jogo
         pygame.display.update()

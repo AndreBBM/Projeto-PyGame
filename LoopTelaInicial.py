@@ -15,7 +15,7 @@ def executar_tela_inicial(screen):
     background = pygame.image.load('Imagens/8bitNY.jpg').convert()
     background = pygame.transform.scale(background, (largura, altura))
     background_rect = background.get_rect()
-    carteiro_img = pygame.image.load('Imagens/MailmanFemale.png').convert_alpha()
+    carteiro_img = pygame.image.load('Imagens/carteira_nova.png').convert_alpha()
     carteiro_img = pygame.transform.scale(carteiro_img, (230, 300))
     caixa_correio = pygame.image.load('Imagens/Caixa_de_correio.png').convert_alpha()
     caixa_correio = pygame.transform.scale(caixa_correio, (430, 450))

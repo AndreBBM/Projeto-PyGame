@@ -134,18 +134,18 @@ def executar_joguinho(tela):
             restart = mensagem("Pressione espaço para reiniciar!", 25, (255, 255, 0))
             tela.blit(restart, (70, 180))
             Frame = mensagem("Pontuação:" f"{frames}", 30, (255, 255, 0))
-            tela.blit(Frame, (420, 300))
-            #hisc= open("highscore.txt","r")
-            #highscore=hisc.read()
-            #hisc= open("highscore.txt","w")
-            #string=int(highscore)
-            #print(string)
-            #if frames>highscore:
-                #hisc.write(str(frames))
-                #highscore=frames
-            #hisc.close()
-            #Record= mensagem("Atual Recorde:" f"{highscore}", 30, (255, 255, 0))
-            #tela.blit(Record, (350, 400))
+            tela.blit(Frame, (410, 300))
+            lendo = open("highscore.txt","r")
+            highscore = lendo.read()
+            highscore_numero = int(highscore)
+            lendo.close()
+            if frames > highscore_numero:
+                highscore_numero = frames
+                escrevendo = open("highscore.txt","w")
+                escrevendo.write(str(highscore_numero))
+                escrevendo.close()
+            Record = mensagem("Atual Recorde:" f"{highscore_numero}", 30, (255, 255, 0))
+            tela.blit(Record, (300, 350))
 
         else:
             # Teste contagem quadros

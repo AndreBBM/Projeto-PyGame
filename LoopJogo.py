@@ -12,22 +12,22 @@ pygame.mixer.init()  # Inicialização do módulo de áudio do pygame
 pygame.display.set_caption('Olha o Carteiro!')
 
 # Carregando imagens:
-background = pygame.image.load('Imagens/8bitNY.jpg').convert()  # Não precisa de transparência aqui
+background = pygame.image.load('Assets/Imagens/8bitNY.jpg').convert()  # Não precisa de transparência aqui
 background = pygame.transform.scale(background, (1000, 800))
-carteiro_sheet = pygame.image.load('Imagens/MailmanFemaleSpriteSheet.png').convert_alpha()
-carteiro_img = pygame.image.load('Imagens/MailmanFemale.png').convert_alpha()
+carteiro_sheet = pygame.image.load('Assets/Imagens/MailmanFemaleSpriteSheet.png').convert_alpha()
+carteiro_img = pygame.image.load('Assets/Imagens/MailmanFemale.png').convert_alpha()
 carteiro_img = pygame.transform.scale(carteiro_img, (WIDTH_cart, HEIGHT_cart))
-poste_img = pygame.image.load('Imagens/poste.png').convert_alpha()
+poste_img = pygame.image.load('Assets/Imagens/poste.png').convert_alpha()
 poste_img = pygame.transform.scale(poste_img, (WIDTH_pole, HEIGHT_pole))
-caixas_img = pygame.image.load('Imagens/Caixa.png').convert_alpha()
+caixas_img = pygame.image.load('Assets/Imagens/Caixa.png').convert_alpha()
 caixas_img = pygame.transform.scale(caixas_img, (WIDTH_caixa, HEIGHT_caixa))
-cone_img = pygame.image.load('Imagens/cone.png').convert_alpha()
+cone_img = pygame.image.load('Assets/Imagens/cone.png').convert_alpha()
 cone_img = pygame.transform.scale(cone_img, (WIDTH_cone, HEIGHT_cone))
 
 
 def executar_joguinho(tela):
     frames = 0
-    pygame.mixer.music.load("Som/gorgonzola_city.ogg")
+    pygame.mixer.music.load("Assets/Som/gorgonzola_city.ogg")
     # Volume: 
     pygame.mixer.music.set_volume(volume)
 

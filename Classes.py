@@ -6,7 +6,8 @@ pygame.mixer.init()
 
 # Para o efeito sonoro do pulo
 diretorio_principal = os.path.dirname(__file__)
-diretorio_sons = os.path.join(diretorio_principal, 'som')
+diretorio_assets = os.path.join(diretorio_principal, 'Assets')
+diretorio_sons = os.path.join(diretorio_assets, 'Som')
 
 # Velocidade do jogo
 class Velocidade ():

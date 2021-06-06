@@ -6,11 +6,11 @@ import pygame
 
 def executar_tela_info (screen):
     # Música de inicio
-    pygame.mixer.music.load("Som/Near_and_Far.ogg")
+    pygame.mixer.music.load("Assets/Som/Near_and_Far.ogg")
     pygame.mixer.music.set_volume(volume)
     clock = pygame.time.Clock()
     # Tela de fundo
-    background = pygame.image.load('Imagens/carta.jpg').convert()
+    background = pygame.image.load('Assets/Imagens/carta.jpg').convert()
     background = pygame.transform.scale(background, (largura, altura))
     background_rect = background.get_rect()
 

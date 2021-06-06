@@ -4,43 +4,42 @@ from constantes import *
 from Funcoes import *
 import pygame
 
+# Função da segunda tela
 def executar_tela_info (screen):
-    # Música de inicio
-    pygame.mixer.music.load("Assets/Som/Near_and_Far.ogg")
-    pygame.mixer.music.set_volume(volume)
-    clock = pygame.time.Clock()
     # Tela de fundo
     background = pygame.image.load('Assets/Imagens/carta.jpg').convert()
     background = pygame.transform.scale(background, (largura, altura))
     background_rect = background.get_rect()
+    # Rodando o cenário
+    clock = pygame.time.Clock()
+    # Música de inicio
+    pygame.mixer.music.load("Assets/Som/Near_and_Far.ogg")
+    pygame.mixer.music.set_volume(volume)
+    pygame.mixer.music.play(loops=-1)
 
     correr = True
-
-    # Música de fundo do jogo começa a tocar
-    pygame.mixer.music.play(loops=-1)
+    # Enquanto a tela correr
     while correr:
-
         clock.tick(FramePerSecond)
-
         # Tratando os eventos
         for event in pygame.event.get():
+            # Sair
             if event.type == QUIT:
                 state = MORTO
                 correr = False
+            # Se uma tecla for tocada
             if event.type == KEYUP:
+                # Se a tecla for espaço
                 if event.key == K_SPACE:
                     state = JOGAR
                     correr = False
-                    # pygame.mixer.music.stop()
 
         # Atualizando a tela
         # Imagem de fundo: carta
         screen.blit(background, background_rect)
-
         # Nome do jogo
         nome = mensagem("Olha o carteiro!", 35, (0, 0, 0))
         screen.blit(nome, (190, 50))
-
         # Mensagem com o objetivo do jogo
         objetivo1 = mensagem("Objetivo do", 30, (0, 0, 0))
         screen.blit(objetivo1, (70, 295))
@@ -52,7 +51,6 @@ def executar_tela_info (screen):
         screen.blit(objetivo4, (100, 405))
         objetivo4 = mensagem("dos postes.", 20, (0, 0, 0))
         screen.blit(objetivo4, (130, 435))
-
         # Mensagem sobre como jogar
         instrucoes1 = mensagem("Como jogar?", 30, (0, 0, 0))
         screen.blit(instrucoes1, (520, 300))

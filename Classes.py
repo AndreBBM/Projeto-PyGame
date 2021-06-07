@@ -73,25 +73,9 @@ class Carteiro(pygame.sprite.Sprite):
         self.image = self.imagens[int(self.index_lista)]
 
 
-# Classe da caixa
-class Caixa(pygame.sprite.Sprite):
-    def __init__(self, caixas_img):
-        pygame.sprite.Sprite.__init__(self)
-        self.image = caixas_img
-        self.image = pygame.transform.scale(self.image, (50, 50))
-        self.rect = self.image.get_rect()
-        self.rect.center = (largura, chao - self.rect.height)
-
-    def update(self):
-        if self.rect.x < -self.rect.width:
-            self.kill()
-        self.rect.x -= 2
-
-
 # Classe do poste
 class Poste(pygame.sprite.Sprite):
     def __init__(self, poste_img):
-       
 
         pygame.sprite.Sprite.__init__(self)
         self.image = poste_img
@@ -113,7 +97,6 @@ class Poste(pygame.sprite.Sprite):
 class Cone(pygame.sprite.Sprite):
     def __init__(self, cone_img):
 
-
         pygame.sprite.Sprite.__init__(self)
         self.image = cone_img
         self.image = pygame.transform.scale(self.image, (60, 60))
@@ -130,6 +113,7 @@ class Cone(pygame.sprite.Sprite):
         self.rect.x -= acelera.acelera
 
 
+# Classe da lampada
 class Lampada(pygame.sprite.Sprite):
     def __init__(self, poste_img, poste):
 

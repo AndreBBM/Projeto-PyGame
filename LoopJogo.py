@@ -17,8 +17,6 @@ background = pygame.transform.scale(background, (1000, 800))
 carteiro_sheet = pygame.image.load('Assets/Imagens/MailmanFemaleSpriteSheet.png').convert_alpha()
 poste_img = pygame.image.load('Assets/Imagens/poste.png').convert_alpha()
 poste_img = pygame.transform.scale(poste_img, (WIDTH_pole, HEIGHT_pole))
-caixas_img = pygame.image.load('Assets/Imagens/Caixa.png').convert_alpha()
-caixas_img = pygame.transform.scale(caixas_img, (WIDTH_caixa, HEIGHT_caixa))
 cone_img = pygame.image.load('Assets/Imagens/cone.png').convert_alpha()
 cone_img = pygame.transform.scale(cone_img, (WIDTH_cone, HEIGHT_cone))
 

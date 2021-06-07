@@ -8,4 +8,3 @@ def mensagem(msg, tamanho, cor):
     mensagem = f"{msg}"  # F--F string--- Mesma coisa que .format
     texto_formatado = fonte.render(mensagem, True, cor)  # Textocerrilhado- Segundo
     return texto_formatado
-

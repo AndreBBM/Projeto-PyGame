@@ -80,6 +80,8 @@ def executar_joguinho(tela):
                         obstaculo = None
                         frames = 0
                         acelera.acelera = 2
+                    if event.key == K_q:
+                        exit ()
 
         # Para surgir os obstáculos
         if obstaculo == None or obstaculo.rect.x < (largura - 500):
@@ -132,6 +134,8 @@ def executar_joguinho(tela):
             tela.blit(cabou, (70, 100))
             restart = mensagem("Pressione espaço para reiniciar!", 25, (255, 255, 0))
             tela.blit(restart, (70, 180))
+            quit = mensagem("Pressione Q para sair :(", 25, (255, 255, 0))
+            tela.blit(quit, (70, 210))
             Frame = mensagem("Pontuação:" f"{frames}", 30, (255, 255, 0))
             tela.blit(Frame, (410, 300))
             

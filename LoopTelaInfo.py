@@ -13,7 +13,7 @@ def executar_tela_info (screen):
     # Rodando o cenário
     clock = pygame.time.Clock()
     # Música de inicio
-    pygame.mixer.music.load("Assets/Som/Near_and_Far.ogg")
+    pygame.mixer.music.load("Assets/Som/GuineaPigHero.mp3")
     pygame.mixer.music.set_volume(volume)
     pygame.mixer.music.play(loops=-1)
 

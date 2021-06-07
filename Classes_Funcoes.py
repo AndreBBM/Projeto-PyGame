@@ -1,6 +1,7 @@
 # Importando e iniciando pacotes
 import pygame
 import os
+from pygame.constants import *
 from constantes import *
 pygame.mixer.init()
 
@@ -9,11 +10,13 @@ diretorio_principal = os.path.dirname(__file__)
 diretorio_assets = os.path.join(diretorio_principal, 'Assets')
 diretorio_sons = os.path.join(diretorio_assets, 'Som')
 
+
 # Velocidade do jogo
 class Velocidade ():
     def __init__(self):
         self.acelera = 2
 acelera = Velocidade()
+
 
 # Classe do carteiro
 class Carteiro(pygame.sprite.Sprite):
@@ -129,3 +132,11 @@ class Lampada(pygame.sprite.Sprite):
         if self.rect.topright[0] < 0:
             self.rect.centerx = self.referencia_poste.rect.centerx
         self.rect.x -= acelera.acelera
+
+
+# Função de formatar as mensagens:
+def mensagem(msg, tamanho, cor):
+    fonte = pygame.font.Font('Assets/font/PressStart2P.ttf', tamanho)
+    mensagem = f"{msg}"  # F--F string--- Mesma coisa que .format
+    texto_formatado = fonte.render(mensagem, True, cor)  # Textocerrilhado- Segundo
+    return texto_formatado

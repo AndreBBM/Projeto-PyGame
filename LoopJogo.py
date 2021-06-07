@@ -1,9 +1,8 @@
 from pygame.constants import *
-from Classes import *
+from Classes_Funcoes import *
 from constantes import *
 import pygame
 import random
-from Funcoes import *
 
 pygame.init()  # Inicialização Pygame
 pygame.mixer.init()  # Inicialização do módulo de áudio do pygame

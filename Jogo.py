@@ -1,7 +1,7 @@
 # Importando e iniciando pacotes
 # from typing import Set
 from pygame.constants import *
-from Classes import *
+from Classes_Funcoes import *
 from constantes import *
 import pygame
 

@@ -1,7 +1,6 @@
 from pygame.constants import *
-from Classes import *
+from Classes_Funcoes import *
 from constantes import *
-from Funcoes import *
 import pygame
 
 # Função da segunda tela

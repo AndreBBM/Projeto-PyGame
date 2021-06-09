@@ -1,6 +1,8 @@
 # Projeto-PyGame - Olha o Carteiro!
 
-Você é um carteiro que tem a missão de entregar uma carta do outro lado da cidade. Desvie dos obstáculos para entregar as encomendas o mais rápido possível!
+Estamos em tempos pandêmicos, você é um carteiro que tem a missão de entregar uma carta do outro lado da cidade. Desvie dos obstáculos para entregar as encomendas o mais rápido possível, antes que seja infectado!
+
+LINK DO VIDEO DO JOGO:
 
 CONTROLES:
 
@@ -55,6 +57,4 @@ https://opengameart.org/content/guinea-pig-hero
 Música da tela inicial:
 https://opengameart.org/content/near-and-far
 
-
-LINK DO VIDEO DO JOGO:
 

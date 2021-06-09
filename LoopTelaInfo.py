@@ -18,6 +18,7 @@ def executar_tela_info(screen):
     pygame.mixer.music.play(loops=-1)
 
     correr = True
+    player=0
     # Enquanto a tela correr
     while correr:
         clock.tick(FramePerSecond)
@@ -29,11 +30,16 @@ def executar_tela_info(screen):
                 correr = False
             # Se uma tecla for tocada
             if event.type == KEYUP:
-                # Se a tecla for espaço
-                if event.key == K_SPACE:
-                    state = JOGAR
+                # Escolhe jogador
+                if event.key == K_o:
+                    state= JOGAR
                     correr = False
-
+                    player=1
+                if event.key == K_a:
+                    state= JOGAR
+                    correr = False
+                    player=0
+                # Ao escolher o player, muda-se a tela de forma automática
         # Atualizando a tela
         # Imagem de fundo: carta
         screen.blit(background, background_rect)
@@ -64,4 +70,4 @@ def executar_tela_info(screen):
         screen.blit(instrucoes4, (595, 430))
 
         pygame.display.flip()
-    return state
+    return state, player

@@ -14,6 +14,7 @@ pygame.display.set_caption('Olha o Carteiro!')
 background = pygame.image.load('Assets/Imagens/8bitNY.jpg').convert()  # Não precisa de transparência aqui
 background = pygame.transform.scale(background, (1000, 800))
 carteira_sheet = pygame.image.load('Assets/Imagens/MailmanFemaleSpriteSheet.png').convert_alpha()
+carteiro_sheet= pygame.image.load('Assets/Imagens/MailmanSpriteSheet.png').convert_alpha()
 poste_img = pygame.image.load('Assets/Imagens/poste.png').convert_alpha()
 poste_img = pygame.transform.scale(poste_img, (WIDTH_pole, HEIGHT_pole))
 cone_img = pygame.image.load('Assets/Imagens/cone.png').convert_alpha()
@@ -21,14 +22,17 @@ cone_img = pygame.transform.scale(cone_img, (WIDTH_cone, HEIGHT_cone))
 
 
 # Função de tela do jogo
-def executar_joguinho(tela):
+def executar_joguinho(tela,player):
     frames = 0
+    if player==0:
+        carteira_andando = Carteiro(carteira_sheet)
+    else:
+        carteira_andando = Carteiro(carteiro_sheet)
 
     # Rodando o cenário
     clock = pygame.time.Clock()
     # Grupo de todas as sprites e carregando a sprite do carteiro
     todas_as_sprites = pygame.sprite.Group()
-    carteira_andando = Carteiro(carteira_sheet)
     todas_as_sprites.add(carteira_andando)
     # Grupo colisão com a carteira
     grupo_obstaculo = pygame.sprite.Group()

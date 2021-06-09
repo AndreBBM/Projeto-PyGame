@@ -20,10 +20,10 @@ while state != MORTO:
         state = LoopTelaInicial.executar_tela_inicial(tela)
     # Apertou espaço na tela inicial:
     elif state == INFO:
-        state = LoopTelaInfo.executar_tela_info(tela)
+        state, player = LoopTelaInfo.executar_tela_info(tela)
     # Se jogar, mostrar a tela do jogo em si
     elif state == JOGAR:
-        state = LoopJogo.executar_joguinho(tela)
+        state = LoopJogo.executar_joguinho(tela, player)
     # Em todos os outros casos, ele está morto
     else:
         state = MORTO

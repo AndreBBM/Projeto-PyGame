@@ -4,6 +4,8 @@ Estamos em tempos pandêmicos, você é um carteiro que tem a missão de entrega
 
 LINK DO VIDEO DO JOGO:
 
+https://youtu.be/0HSpBfsTDVI
+
 CONTROLES:
 
 Na tela inicial, pressione "espaço" para mudar a tela
@@ -56,5 +58,3 @@ https://opengameart.org/content/guinea-pig-hero
 
 Música da tela inicial:
 https://opengameart.org/content/near-and-far
-
-

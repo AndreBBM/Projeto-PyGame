@@ -19,6 +19,7 @@ poste_img = pygame.transform.scale(poste_img, (WIDTH_pole, HEIGHT_pole))
 cone_img = pygame.image.load('Assets/Imagens/cone.png').convert_alpha()
 cone_img = pygame.transform.scale(cone_img, (WIDTH_cone, HEIGHT_cone))
 
+
 # Função de tela do jogo
 def executar_joguinho(tela):
     frames = 0
@@ -80,7 +81,7 @@ def executar_joguinho(tela):
                         frames = 0
                         acelera.acelera = 2
                     if event.key == K_q:
-                        exit ()
+                        exit()
 
         # Para surgir os obstáculos
         if obstaculo == None or obstaculo.rect.x < (largura - 500):
@@ -137,10 +138,10 @@ def executar_joguinho(tela):
             tela.blit(quit, (70, 210))
             Frame = mensagem("Pontuação:" f"{frames}", 30, (255, 255, 0))
             tela.blit(Frame, (410, 300))
-            
+
             # Para acessar o highscore, utilizar o conhecimento sobre arquivos
             # Nessa parte, abre o arquivo e o lê
-            lendo = open("highscore.txt","r")
+            lendo = open("highscore.txt", "r")
             highscore = lendo.read()
             # Salva o número do arquivo, que estava em string, como um número
             highscore_numero = int(highscore)
@@ -150,7 +151,7 @@ def executar_joguinho(tela):
             if frames > highscore_numero:
                 highscore_numero = frames
                 # Abre o arquivo novamente, mas para escrever o novo máximo
-                escrevendo = open("highscore.txt","w")
+                escrevendo = open("highscore.txt", "w")
                 escrevendo.write(str(highscore_numero))
                 # Fecha ele novamente
                 escrevendo.close()
@@ -160,14 +161,14 @@ def executar_joguinho(tela):
         else:
             # Aparece a contagem dos frames na tela do jogo, sempre se atualizando
             contagem = mensagem(f"{frames}", 30, (255, 255, 0))
-            tela.blit(contagem, (largura-300, 10))
+            tela.blit(contagem, (largura - 300, 10))
             frames += 5
         # A cada 5000 frames a velocidade aumenta 0.5
         if frames % 5000 == 0:
             carteira_andando.pontuacao_pontos()
             if acelera.acelera <= 8:
                 acelera.acelera += 0.5
-        
+
         # Atualizando o jogo
         pygame.display.update()
 

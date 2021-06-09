@@ -3,8 +3,9 @@ from Classes_Funcoes import *
 from constantes import *
 import pygame
 
+
 # Função da segunda tela
-def executar_tela_info (screen):
+def executar_tela_info(screen):
     # Tela de fundo
     background = pygame.image.load('Assets/Imagens/carta.jpg').convert()
     background = pygame.transform.scale(background, (largura, altura))

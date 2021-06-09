@@ -69,9 +69,9 @@ def executar_tela_info(screen):
         screen.blit(msg2, (280, 270))
         msg3 = mensagem("Carteiro", 15, (0, 0, 0))
         screen.blit(msg3, (460, 270))
-        msg4 = mensagem("Tecla A", 15, (0, 0, 0))
+        msg4 = mensagem("Letra A", 15, (0, 0, 0))
         screen.blit(msg4, (290, 450))
-        msg5 = mensagem("Tecla O", 15, (0, 0, 0))
+        msg5 = mensagem("Letra O", 15, (0, 0, 0))
         screen.blit(msg5, (470, 450))
 
         # Imagens das duas opções

@@ -14,7 +14,7 @@ pygame.display.set_caption('Olha o Carteiro!')
 background = pygame.image.load('Assets/Imagens/8bitNY.jpg').convert()  # Não precisa de transparência aqui
 background = pygame.transform.scale(background, (1000, 800))
 carteira_sheet = pygame.image.load('Assets/Imagens/MailmanFemaleSpriteSheet.png').convert_alpha()
-carteiro_sheet= pygame.image.load('Assets/Imagens/MailmanSpriteSheet.png').convert_alpha()
+carteiro_sheet = pygame.image.load('Assets/Imagens/MailmanSpriteSheet.png').convert_alpha()
 poste_img = pygame.image.load('Assets/Imagens/poste.png').convert_alpha()
 poste_img = pygame.transform.scale(poste_img, (WIDTH_pole, HEIGHT_pole))
 cone_img = pygame.image.load('Assets/Imagens/cone.png').convert_alpha()

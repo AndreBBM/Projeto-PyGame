@@ -4,8 +4,9 @@ from constantes import *
 import pygame
 import random
 
-pygame.init()  # Inicialização Pygame
-pygame.mixer.init()  # Inicialização do módulo de áudio do pygame
+# Inicialização Pygame e do módulo de áudio do pygame
+pygame.init()
+pygame.mixer.init()
 
 # Criando a tela do jogo
 pygame.display.set_caption('Olha o Carteiro!')
@@ -20,12 +21,13 @@ poste_img = pygame.transform.scale(poste_img, (WIDTH_pole, HEIGHT_pole))
 cone_img = pygame.image.load('Assets/Imagens/cone.png').convert_alpha()
 cone_img = pygame.transform.scale(cone_img, (WIDTH_cone, HEIGHT_cone))
 
-
 # Função de tela do jogo
 def executar_joguinho(tela,player):
     frames = 0
-    if player==0:
+    # Se escolher A, será utilizado o carteira_sheet
+    if player == 0:
         carteira_andando = Carteiro(carteira_sheet)
+    # Caso contrário, escolhendo O, será utilizado o carteiro_sheet
     else:
         carteira_andando = Carteiro(carteiro_sheet)
 
@@ -84,6 +86,7 @@ def executar_joguinho(tela,player):
                         obstaculo = None
                         frames = 0
                         acelera.acelera = 2
+                    # Se apertar Q, fecha o jogo
                     if event.key == K_q:
                         exit()
 
@@ -159,6 +162,8 @@ def executar_joguinho(tela,player):
                 escrevendo.write(str(highscore_numero))
                 # Fecha ele novamente
                 escrevendo.close()
+            # PARA ESSA PARTE, MESMO NÃO COPIANDO-O, NOS INSPIRAMOS NUM CÓDIGO PRESENTE EM
+            # https://stackoverflow.com/questions/16726354/saving-the-highscore-for-a-game
             Record = mensagem("Atual Recorde:" f"{highscore_numero}", 30, (255, 255, 0))
             tela.blit(Record, (300, 350))
 

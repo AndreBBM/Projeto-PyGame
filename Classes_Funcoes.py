@@ -11,7 +11,7 @@ diretorio_assets = os.path.join(diretorio_principal, 'Assets')
 diretorio_sons = os.path.join(diretorio_assets, 'Som')
 
 
-# Velocidade do jogo
+# Classe da velocidade do jogo
 class Velocidade ():
     def __init__(self):
         self.acelera = 2
@@ -23,13 +23,14 @@ class Carteiro(pygame.sprite.Sprite):
     def __init__(self, carteiro_sheet):
         pygame.sprite.Sprite.__init__(self)
 
-        # Colocando o som do pulo e aumentando o volume do som
+        # Colocando o som do pulo, colisão e pontos; aumentando o volume do som
         self.som_do_pulo = pygame.mixer.Sound(os.path.join(diretorio_sons, 'mb_jump.wav'))
         self.som_do_pulo.set_volume(volume)
         self.som_de_colisao = pygame.mixer.Sound(os.path.join(diretorio_sons, 'sfx_hurt.ogg'))
         self.som_de_colisao.set_volume(volume)
         self.som_pontos = pygame.mixer.Sound(os.path.join(diretorio_sons, 'bell.wav'))
         self.som_pontos.set_volume(volume)
+
         # Faces da carteira e dimensionando escala
         self.img1 = carteiro_sheet.subsurface((0, 0), (235, 336))
         self.img1 = pygame.transform.scale(self.img1, (235 - 170, 336 - 250))
@@ -37,12 +38,14 @@ class Carteiro(pygame.sprite.Sprite):
         self.img2 = pygame.transform.scale(self.img2, (235 - 170, 336 - 250))
         self.img3 = carteiro_sheet.subsurface((235, 0), (235, 336))
         self.img3 = pygame.transform.scale(self.img3, (235 - 170, 336 - 250))
+
+        #listas estado da certeira(o)
         self.imagens = [self.img1, self.img2, self.img3]
         self.index_lista = 0
         self.image = self.imagens[self.index_lista]
         self.rect = self.image.get_rect()
 
-        # Criando máscara da sprite
+        # Criando máscara da sprite-- Conseguir colidir com lâmpada e cone
         self.mask = pygame.mask.from_surface(self.image)
         self.rect.x = carteiro_x
         self.rect.y = (chao - self.rect.height)
@@ -56,9 +59,11 @@ class Carteiro(pygame.sprite.Sprite):
         self.pular = True
         self.som_do_pulo.play()
 
+    # A cada "toque" de pontuação (5000 em 5000 pontos), acelera mais meia unidade
     def pontuacao_pontos(self):
         self.som_pontos.play()
 
+    #Faz a carteira(o) andar!
     def update(self):
         if self.pular == True:
             if self.rect.y <= 200:
@@ -76,7 +81,7 @@ class Carteiro(pygame.sprite.Sprite):
         self.image = self.imagens[int(self.index_lista)]
 
 
-# Classe do poste
+# Classe do poste-- Não é colisão, só as lâmpadas
 class Poste(pygame.sprite.Sprite):
     def __init__(self, poste_img):
 
@@ -84,11 +89,9 @@ class Poste(pygame.sprite.Sprite):
         self.image = poste_img
         self.image = pygame.transform.scale(self.image, (100, 200))
         self.rect = self.image.get_rect()
-
-        # Máscara de colisão
-        self.mask = pygame.mask.from_surface(self.image)
         self.rect.x = largura
         self.rect.y = (chao - self.rect.height)
+
 
     def update(self):
         if self.rect.x < -self.rect.width:
@@ -102,32 +105,36 @@ class Cone(pygame.sprite.Sprite):
 
         pygame.sprite.Sprite.__init__(self)
         self.image = cone_img
+        #Redimensionando tamanho
         self.image = pygame.transform.scale(self.image, (60, 60))
         self.rect = self.image.get_rect()
 
-        # Criando máscara da sprite
+        # Criando máscara da sprite-- Para a colisão
         self.mask = pygame.mask.from_surface(self.image)
         self.rect.x = largura
         self.rect.y = (chao - self.rect.height)
 
+    #Fazer o cone se mover
     def update(self):
         if self.rect.x < -self.rect.width:
             self.kill()
         self.rect.x -= acelera.acelera
 
 
-# Classe da lampada
+# Classe da lampada--- A real colisão
 class Lampada(pygame.sprite.Sprite):
     def __init__(self, poste_img, poste):
 
         pygame.sprite.Sprite.__init__(self)
         self.image = poste_img
+        #Pegando apenas a parte das lâmpadas-- Sobreposição 
         self.image = poste_img.subsurface((0, 0), (100, 60))
         self.rect = self.image.get_rect()
         self.rect.center = (300, 280)
         self.referencia_poste = poste
+        #Ficar no mesmo local onde poste aparece
         self.rect.centerx = self.referencia_poste.rect.centerx
-
+    # "Andar" conforme o poste
     def update(self):
         if self.rect.topright[0] < 0:
             self.rect.centerx = self.referencia_poste.rect.centerx

@@ -13,7 +13,7 @@ pygame.display.set_caption('Olha o Carteiro!')
 # Carregando imagens:
 background = pygame.image.load('Assets/Imagens/8bitNY.jpg').convert()  # Não precisa de transparência aqui
 background = pygame.transform.scale(background, (1000, 800))
-carteiro_sheet = pygame.image.load('Assets/Imagens/MailmanFemaleSpriteSheet.png').convert_alpha()
+carteira_sheet = pygame.image.load('Assets/Imagens/MailmanFemaleSpriteSheet.png').convert_alpha()
 poste_img = pygame.image.load('Assets/Imagens/poste.png').convert_alpha()
 poste_img = pygame.transform.scale(poste_img, (WIDTH_pole, HEIGHT_pole))
 cone_img = pygame.image.load('Assets/Imagens/cone.png').convert_alpha()
@@ -27,8 +27,8 @@ def executar_joguinho(tela):
     clock = pygame.time.Clock()
     # Grupo de todas as sprites e carregando a sprite do carteiro
     todas_as_sprites = pygame.sprite.Group()
-    carteiro_andando = Carteiro(carteiro_sheet)
-    todas_as_sprites.add(carteiro_andando)
+    carteira_andando = Carteiro(carteira_sheet)
+    todas_as_sprites.add(carteira_andando)
     # Grupo colisão com a carteira
     grupo_obstaculo = pygame.sprite.Group()
     obstaculo = None
@@ -58,11 +58,11 @@ def executar_joguinho(tela):
                     # Se a tecla for a setinha para cima
                     if event.key == K_UP:
                         # Se estiver acima do chão, não pulará
-                        if carteiro_andando.rect.y != carteiro_andando.inicial_y:
+                        if carteira_andando.rect.y != carteira_andando.inicial_y:
                             pass
                         # Se estiver no chão, pulará
                         else:
-                            carteiro_andando.pula()
+                            carteira_andando.pula()
             # Se colidiu com um obstáculo
             if state == MORTO:
                 # Se a tecla for apertada
@@ -72,7 +72,7 @@ def executar_joguinho(tela):
                         # Zera tudo e começa novamente
                         pygame.mixer.music.play()
                         todas_as_sprites.empty()
-                        todas_as_sprites.add(carteiro_andando)
+                        todas_as_sprites.add(carteira_andando)
                         grupo_obstaculo.empty()
                         state = JOGAR
                         colisoes.clear()
@@ -106,11 +106,11 @@ def executar_joguinho(tela):
             velocidade_tela = 2
             todas_as_sprites.update()
         # Criando as colisões
-        colisoes = pygame.sprite.spritecollide(carteiro_andando, grupo_obstaculo, False, pygame.sprite.collide_mask)
+        colisoes = pygame.sprite.spritecollide(carteira_andando, grupo_obstaculo, False, pygame.sprite.collide_mask)
         # Se houver uma colisão
         if len(colisoes) > 0 and state != MORTO:
             # Toca o som da colisão e seu state agora é morto
-            carteiro_andando.tocar_som_colisao()
+            carteira_andando.tocar_som_colisao()
             pygame.mixer.music.stop()
             state = MORTO
 
@@ -164,7 +164,7 @@ def executar_joguinho(tela):
             frames += 5
         # A cada 5000 frames a velocidade aumenta 0.5
         if frames % 5000 == 0:
-            carteiro_andando.pontuacao_pontos()
+            carteira_andando.pontuacao_pontos()
             if acelera.acelera <= 8:
                 acelera.acelera += 0.5
         

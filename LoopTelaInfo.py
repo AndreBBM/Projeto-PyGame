@@ -3,7 +3,7 @@ from Classes_Funcoes import *
 from constantes import *
 import pygame
 import LoopJogo
-from extrair_metodo import *
+from Extrair_metodo import *
 
 # Função da segunda tela
 def executar_tela_info(screen):
